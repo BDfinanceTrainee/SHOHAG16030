@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<center>
+    <h1>Implementing Ajax Jquery Live Search Functionality</h1>
+    <hr/>
+    <input type="text" id="testsearch" placeholder="Enter Employee Name..." />
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Department</th>
+            <th>Join Date</th>
+        </tr>
+        @foreach (var item in ViewBag.result)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Designation</td>
+                <td>@item.Department</td>
+                <td>@item.JoinDate</td>
+            </tr>            
+        }
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $("#txtsearch").on("keyup", function () {
+            var txtenter = $(this).val();
+            $("table tr").each(function (results) {
+                if (results !== 0) {
+                    var id = $(this).find("td:nth-child(2)").text();
+                    if(id.indexOf(txtenter)!==0 &&id.toLocaleLowerCase().indexOf(txtenter.toLocaleLowerCase())<0){
+                        $(this).hide();
+                    }
+                    else
+                    {
+                        $(this).show();
+                    }
+                }
+            })
+        });
+    </script>
+
+</center>

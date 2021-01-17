@@ -1,0 +1,11 @@
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\bin\Debug\CodeFirstExample.exe.config
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\bin\Debug\CodeFirstExample.exe
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\bin\Debug\CodeFirstExample.pdb
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\bin\Debug\EntityFramework.dll
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\bin\Debug\EntityFramework.SqlServer.dll
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\bin\Debug\EntityFramework.xml
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\bin\Debug\EntityFramework.SqlServer.xml
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\obj\Debug\CodeFirstExample.exe
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\obj\Debug\CodeFirstExample.pdb
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\obj\Debug\CodeFirstExample.Migrations.CreatePost.resources
+J:\BDFinanceTraining\CodeFirstExample\CodeFirstExample\obj\Debug\CodeFirstExample.csproj.GenerateResource.Cache

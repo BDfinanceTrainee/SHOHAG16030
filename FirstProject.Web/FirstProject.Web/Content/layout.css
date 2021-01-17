@@ -1,0 +1,221 @@
+*{
+	box-sizing: border-box;
+}
+title {
+	font-color: red;
+}
+body{
+	margin: 0;
+	padding:0;
+}
+.col-1{width: 8.33%;}
+.col-2{width: 16.66%;}
+.col-3{width: 25%;}
+.col-4{width: 33.33%;}
+.col-5{width: 41.66%;}
+.col-6{width: 50%;}
+.col-7{width: 58.33%;}
+.col-8{width: 66.66%;}
+.col-9{width: 75%;}
+.col-10{width: 83.33%;}
+.col-11{width: 91.66%;}
+.col-12{width: 100%;}
+/*sudo class*/
+.row:after{
+	content:'';
+	clear: both;
+	display: block;
+}
+[class*='col']{
+	
+	float: left;
+}
+nav{
+	background-color: rgb(50, 168, 149,0.5);
+	height: 70px;
+	position: fixed;
+	width: 100%;
+	top:0px;
+}
+ul{
+	list-style-type: none;
+	margin: 200px;
+	padding: 0;
+    margin-top:-60px;
+}
+ul li{
+	display: inline-block;
+}
+ul li a{
+	text-decoration: none;
+	width: 100%;
+	padding: 20px;
+	display: block;
+	color:black;
+	font-family: 'Sansita Swashed', cursive;
+}
+ul li a:hover{
+	background-color:  blue;
+	color:white;
+}
+ul li button{
+	margin-left: 441px;
+    background-color: #3632a8;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px 20px;
+    padding: 8px 8px;
+    font-size: 15px;
+    color: white;
+}
+ul li a button{
+    background-color: #3632a8;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px 20px;
+    padding: 8px 8px;
+    font-size: 15px;
+    color: white;
+ }
+.img-logo{
+	 width: 150px;
+	 margin-left: 20px;
+}
+.backdrop{
+	background-image: url('Images/bodyimg.png');
+	height:500px;
+	background-position: center;
+	background-size: cover;
+ 	margin-top: 70px;
+}
+.sample{
+	background-color: rgb(200, 66, 245,0.3);
+}
+.about1 h1{
+	font-family: 'Sansita Swashed', cursive;
+	margin-left: 220px;
+	padding-top: 40px;
+}
+.about1 h3{
+	text-align: center;
+	font-family: 'Sansita Swashed', cursive;
+	margin-right: 20px;
+}
+
+.about img{
+width: 80%;
+height: 220px;
+margin-top: 30px;
+}
+.course{
+	font-family: 'Sansita Swashed', cursive;
+    text-align: center;
+	height: 420px;
+	width: 100%;
+	background-color: rgb(47, 45, 48, 0.5);
+	padding-top: 10px;
+}
+.c1{
+height: 270px;
+width: 200px;
+margin-left: 200px;
+margin-right: 100px;
+margin-top: 20px;
+background-color: rgba(29, 100, 117, 0.5);
+}
+.c1 h3{
+	margin-top:2px;
+	margin-bottom: 3px;
+}
+.c1 button{
+    border: none;
+    cursor: pointer;
+    border-radius: 20px 20px;
+    padding: 8px 8px;
+    font-size: 15px;
+    color: white;
+    background-color: rgba(14,22,85,0.5);
+}
+.c2{
+height: 270px;
+width: 200px;
+margin-left: 50px;
+margin-right: 60px;
+margin-top: 20px;
+background-color: rgba(29, 100, 117, 0.5);
+}
+.c2 h3{
+	margin-top:2px;
+	margin-bottom: 3px;
+}
+.c2 button{
+    border: none;
+    cursor: pointer;
+    border-radius: 20px 20px;
+    padding: 8px 8px;
+    font-size: 15px;
+    color: white;
+    background-color: rgba(14,22,85,0.5);
+}
+.c3{
+height: 270px;
+width: 200px;
+margin-left: 75px;
+margin-top: 20px;
+background-color: rgba(29, 100, 117, 0.5);
+}
+.c3 h3{
+	margin-top:2px;
+	margin-bottom: 3px;
+}
+.c3 button{
+    border: none;
+    cursor: pointer;
+    border-radius: 20px 20px;
+    padding: 8px 8px;
+    font-size: 15px;
+    color: white;
+    background-color: rgba(14,22,85,0.5);
+}
+.co img{
+	 height: 200px;
+	 width: 200px;
+}
+.registration{
+	height: 400px;
+    width: 100%;
+    background-color: rgb(46, 232, 226,0.2);
+    font-family: 'Sansita Swashed', cursive;
+}
+.registration .c4 h2{
+	 margin-top:50px;
+	 color:black;
+	 text-align: center;
+}
+.registration .c4 h3{
+	 margin-left: 20px;
+
+}
+.registration .c4 h4{
+	 margin-left: 20px;
+
+}
+.registration .c5 img{
+	margin-top: 50px;
+    height: 350px;
+    width: 50%;
+    margin-left: 150px;
+}
+.follow{
+	width:100%;
+	height:100px;
+	background-color: silver;
+}
+.follow .c6{
+	 margin-top: -5px;
+	 height:10px;
+}
+.c6 img{
+	 height: 30px;
+	 width: 30px;
+}

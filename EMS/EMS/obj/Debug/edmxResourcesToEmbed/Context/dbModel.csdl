@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employee_Info">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupervisorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupervisorDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VisitDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateOfVisit" Type="DateTime" Precision="3" />
+    <Property Name="NextVistDate" Type="DateTime" Precision="3" />
+    <Property Name="VisitType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lead_Conversion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DuscussedProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepositeAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TypeOfClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BusinessType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClientsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClientsOrganization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ConcernedPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClientsDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelephoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="db_testEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employee_Infoes" EntityType="Self.Employee_Info" />
+    <EntitySet Name="VisitDetails" EntityType="Self.VisitDetail" />
+  </EntityContainer>
+</Schema>

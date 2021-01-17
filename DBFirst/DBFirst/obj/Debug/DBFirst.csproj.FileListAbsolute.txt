@@ -1,0 +1,12 @@
+J:\BDFinanceTraining\DBFirst\DBFirst\bin\Debug\DBFirst.exe.config
+J:\BDFinanceTraining\DBFirst\DBFirst\bin\Debug\DBFirst.exe
+J:\BDFinanceTraining\DBFirst\DBFirst\bin\Debug\DBFirst.pdb
+J:\BDFinanceTraining\DBFirst\DBFirst\bin\Debug\EntityFramework.dll
+J:\BDFinanceTraining\DBFirst\DBFirst\bin\Debug\EntityFramework.SqlServer.dll
+J:\BDFinanceTraining\DBFirst\DBFirst\bin\Debug\EntityFramework.xml
+J:\BDFinanceTraining\DBFirst\DBFirst\bin\Debug\EntityFramework.SqlServer.xml
+J:\BDFinanceTraining\DBFirst\DBFirst\obj\Debug\DBFirst.exe
+J:\BDFinanceTraining\DBFirst\DBFirst\obj\Debug\DBFirst.pdb
+J:\BDFinanceTraining\DBFirst\DBFirst\obj\Debug\DBFirst.csprojAssemblyReference.cache
+J:\BDFinanceTraining\DBFirst\DBFirst\obj\Debug\DBFirst.csproj.CoreCompileInputs.cache
+J:\BDFinanceTraining\DBFirst\DBFirst\obj\Debug\DBFirst.csproj.CopyComplete

@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employee Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeType" Type="nvarchar" MaxLength="50" />
+          <Property Name="SupervisorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SupervisorDesignation" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="VisitDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateOfVisit" Type="datetime" />
+          <Property Name="NextVistDate" Type="datetime" />
+          <Property Name="VisitType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lead_Conversion" Type="nvarchar" MaxLength="50" />
+          <Property Name="DuscussedProduct" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepositeAmount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeOfClient" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusinessType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsOrganization" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConcernedPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsDesignation" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelephoneNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="db_testModelStoreContainer">
+          <EntitySet Name="Employee Info" EntityType="Self.Employee Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VisitDetails" EntityType="Self.VisitDetails" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee_Info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SupervisorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SupervisorDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VisitDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateOfVisit" Type="DateTime" Precision="3" />
+          <Property Name="NextVistDate" Type="DateTime" Precision="3" />
+          <Property Name="VisitType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lead_Conversion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DuscussedProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepositeAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeOfClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClientsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClientsOrganization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConcernedPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClientsDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelephoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="db_testEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employee_Infoes" EntityType="Self.Employee_Info" />
+          <EntitySet Name="VisitDetails" EntityType="Self.VisitDetail" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_testModelStoreContainer" CdmEntityContainer="db_testEntities">
+          <EntitySetMapping Name="Employee_Infoes">
+            <EntityTypeMapping TypeName="db_testModel.Employee_Info">
+              <MappingFragment StoreEntitySet="Employee Info">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+                <ScalarProperty Name="SupervisorDesignation" ColumnName="SupervisorDesignation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisitDetails">
+            <EntityTypeMapping TypeName="db_testModel.VisitDetail">
+              <MappingFragment StoreEntitySet="VisitDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateOfVisit" ColumnName="DateOfVisit" />
+                <ScalarProperty Name="NextVistDate" ColumnName="NextVistDate" />
+                <ScalarProperty Name="VisitType" ColumnName="VisitType" />
+                <ScalarProperty Name="Lead_Conversion" ColumnName="Lead_Conversion" />
+                <ScalarProperty Name="DuscussedProduct" ColumnName="DuscussedProduct" />
+                <ScalarProperty Name="DepositeAmount" ColumnName="DepositeAmount" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="TypeOfClient" ColumnName="TypeOfClient" />
+                <ScalarProperty Name="BusinessType" ColumnName="BusinessType" />
+                <ScalarProperty Name="ClientsName" ColumnName="ClientsName" />
+                <ScalarProperty Name="ClientsOrganization" ColumnName="ClientsOrganization" />
+                <ScalarProperty Name="ConcernedPerson" ColumnName="ConcernedPerson" />
+                <ScalarProperty Name="ClientsDesignation" ColumnName="ClientsDesignation" />
+                <ScalarProperty Name="TelephoneNo" ColumnName="TelephoneNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

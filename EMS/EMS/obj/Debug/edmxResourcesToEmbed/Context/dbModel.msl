@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_testModelStoreContainer" CdmEntityContainer="db_testEntities">
+    <EntitySetMapping Name="Employee_Infoes">
+      <EntityTypeMapping TypeName="db_testModel.Employee_Info">
+        <MappingFragment StoreEntitySet="Employee Info">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+          <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+          <ScalarProperty Name="SupervisorDesignation" ColumnName="SupervisorDesignation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitDetails">
+      <EntityTypeMapping TypeName="db_testModel.VisitDetail">
+        <MappingFragment StoreEntitySet="VisitDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateOfVisit" ColumnName="DateOfVisit" />
+          <ScalarProperty Name="NextVistDate" ColumnName="NextVistDate" />
+          <ScalarProperty Name="VisitType" ColumnName="VisitType" />
+          <ScalarProperty Name="Lead_Conversion" ColumnName="Lead_Conversion" />
+          <ScalarProperty Name="DuscussedProduct" ColumnName="DuscussedProduct" />
+          <ScalarProperty Name="DepositeAmount" ColumnName="DepositeAmount" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="TypeOfClient" ColumnName="TypeOfClient" />
+          <ScalarProperty Name="BusinessType" ColumnName="BusinessType" />
+          <ScalarProperty Name="ClientsName" ColumnName="ClientsName" />
+          <ScalarProperty Name="ClientsOrganization" ColumnName="ClientsOrganization" />
+          <ScalarProperty Name="ConcernedPerson" ColumnName="ConcernedPerson" />
+          <ScalarProperty Name="ClientsDesignation" ColumnName="ClientsDesignation" />
+          <ScalarProperty Name="TelephoneNo" ColumnName="TelephoneNo" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

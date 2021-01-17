@@ -1,0 +1,12 @@
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\bin\Debug\CodeFirstDetailExample.exe.config
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\bin\Debug\CodeFirstDetailExample.exe
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\bin\Debug\CodeFirstDetailExample.pdb
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\bin\Debug\EntityFramework.dll
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\bin\Debug\EntityFramework.SqlServer.dll
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\bin\Debug\EntityFramework.xml
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\bin\Debug\EntityFramework.SqlServer.xml
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\obj\Debug\CodeFirstDetailExample.csprojResolveAssemblyReference.cache
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\obj\Debug\CodeFirstDetailExample.exe
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\obj\Debug\CodeFirstDetailExample.pdb
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\obj\Debug\CodeFirstDetailExample.Migrations.InitialModel.resources
+J:\BDFinanceTraining\CodeFirstDetailExample\CodeFirstDetailExample\obj\Debug\CodeFirstDetailExample.csproj.GenerateResource.Cache

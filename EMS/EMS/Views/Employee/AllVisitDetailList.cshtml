@@ -1,0 +1,53 @@
+﻿@model  List<EMS.Context.VisitDetail>
+@{
+    ViewBag.Title = "AllVisitDetailList";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>DateOfVisit</th>
+        <th>NextVistDate</th>
+        <th>Lead/Conversion</th>
+        <th>DuscussedProduct</th>
+        <th>DepositeAmount</th>
+        <th>Comments</th>
+        <th>TypeOfClient</th>
+        <th>BusinessType</th>
+        <th>ClientsName</th>
+        <th>ClientsOrganization</th>
+        <th>ConcernedPerson</th>
+        <th>ClientsDesignation</th>
+        <th>TelephoneNo</th>
+        <th>MobileNo</th>
+        <th>Address</th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.DateOfVisit</td>
+        <td>@item.NextVistDate</td>
+        <td>@item.Lead_Conversion</td>
+        <td>@item.DuscussedProduct</td>
+        <td>@item.DepositeAmount</td>
+        <td>@item.Comments</td>
+        <td>@item.TypeOfClient</td>
+        <td>@item.ClientsName</td>
+        <td>@item.ClientsOrganization</td>
+        <td>@item.ConcernedPerson</td>
+        <td>@item.ClientsDesignation</td>
+        <td>@item.TelephoneNo</td>
+        <td>@item.MobileNo</td>
+        <td>@item.Address</td>
+        <td>
+            <a href="@Url.Action("Employee",new {item.Id,item.DateOfVisit,item.NextVistDate,item.VisitType,item.Lead_Conversion,
+                    item.DuscussedProduct,item.DepositeAmount,item.Comments,item.TypeOfClient,item.BusinessType,item.ClientsName,
+                    item.ClientsOrganization,item.ConcernedPerson,item.ClientsDesignation,item.TelephoneNo,item.MobileNo,item.Address})">
+            <i class="btn btn-primary glyphicon-pencil"></i>Edit</a>
+            <a href="@Url.Action("Delete",new { item.Id})"><i class="btn btn-danger glyphicon glyphicon-trash"></i>Delete</a>
+        </td>
+    </tr>
+    }
+    
+</table>
+

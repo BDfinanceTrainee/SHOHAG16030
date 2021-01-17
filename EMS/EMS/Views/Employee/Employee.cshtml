@@ -1,0 +1,101 @@
+﻿@model EMS.Context.VisitDetail
+@{
+    ViewBag.Title = "Employee";
+}
+@*<style>
+    .error{
+        color:red;
+    }
+</style>*@
+@using (Html.BeginForm("AddVisitDetail", "Employee", FormMethod.Post))
+{
+    <div class="container">
+            <div class="form-group">
+                @Html.HiddenFor(x => x.Id)
+                <label>DateOfVisit</label>
+                @*@Html.ValidationMessageFor(x=>x.DateOfVisit,"",new { @class = "error" })*@<br/>
+                <input type="date" id="DateOfVisit" name="DateOfVisit">
+            </div>
+            <div class="form-group">
+                <label>NextVisitDate</label>
+                @*@Html.ValidationMessageFor(x => x.NextVistDate, "", new { @class = "error" })*@<br/>
+                <input type="date" id="NextVistDate" name="NextVistDate">
+            </div>
+            <div class="form-group">
+                <label>VisitType</label>
+                @*@Html.ValidationMessageFor(x => x.VisitType, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.VisitType, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>Lead/Conversion</label>
+                @*@Html.ValidationMessageFor(x => x.Lead_Conversion, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.Lead_Conversion, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>DuscussedProduct</label>
+                @*@Html.ValidationMessageFor(x => x.DuscussedProduct, "", new { @class = "error" })*@<br />
+                @Html.TextBoxFor(x => x.DuscussedProduct, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>DepositeAmount</label>
+                @*@Html.ValidationMessageFor(x => x.DepositeAmount, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.DepositeAmount, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>Comments</label>
+                @*@Html.ValidationMessageFor(x => x.VisitType, "", new { @class = "error" })*@<br/>
+                @Html.TextAreaFor(x => x.Comments, new { @class = "from-control", @rows = "5" })
+            </div>
+            <div class="form-group">
+                <label>TypeOfClient</label>
+                @*@Html.ValidationMessageFor(x => x.TypeOfClient, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.TypeOfClient, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>BusinessType</label>
+                @*@Html.ValidationMessageFor(x => x.BusinessType, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.BusinessType, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>ClientsName</label>
+                @*@Html.ValidationMessageFor(x => x.ClientsName, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.ClientsName, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>ClientsOrganization</label>
+                @*@Html.ValidationMessageFor(x => x.ClientsOrganization, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.ClientsOrganization, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>ConcernedPerson</label>
+                @*@Html.ValidationMessageFor(x => x.ConcernedPerson, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.ConcernedPerson, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>ClientsDesignation</label>
+                @*@Html.ValidationMessageFor(x => x.ClientsDesignation, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.ClientsDesignation, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>TelephoneNo</label>
+                @*@Html.ValidationMessageFor(x => x.TelephoneNo, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.TelephoneNo, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>MobileNo</label>
+                @*@Html.ValidationMessageFor(x => x.MobileNo, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.MobileNo, new { @class = "from-control" })
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                @*@Html.ValidationMessageFor(x => x.Address, "", new { @class = "error" })*@<br/>
+                @Html.TextBoxFor(x => x.Address, new { @class = "from-control" })
+            </div>
+            <div class="">
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary"><i class="icon-file-check2"></i> Save</button>
+                    <a asp-controller="Employee" asp-action="AllVisitDetailList" asp-area="default" class="btn btn-danger"> Back</a>
+                </div>
+            </div>
+    </div>
+}

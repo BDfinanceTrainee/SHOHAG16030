@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee Info">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmployeeType" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupervisorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupervisorDesignation" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="VisitDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateOfVisit" Type="datetime" />
+    <Property Name="NextVistDate" Type="datetime" />
+    <Property Name="VisitType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lead_Conversion" Type="nvarchar" MaxLength="50" />
+    <Property Name="DuscussedProduct" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepositeAmount" Type="nvarchar" MaxLength="50" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypeOfClient" Type="nvarchar" MaxLength="50" />
+    <Property Name="BusinessType" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientsName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientsOrganization" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConcernedPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientsDesignation" Type="nvarchar" MaxLength="50" />
+    <Property Name="TelephoneNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="db_testModelStoreContainer">
+    <EntitySet Name="Employee Info" EntityType="Self.Employee Info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitDetails" EntityType="Self.VisitDetails" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
