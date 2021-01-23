@@ -16,6 +16,8 @@ namespace KendoUIExample.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Designation { get; set; }
+        public string Address { get; set; }
+        public System.DateTime DOB { get; set; }
+        public bool IsActive { get; set; }
     }
 }

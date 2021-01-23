@@ -34,7 +34,7 @@ var KendoUIGridHelper = {
              { field: "Id", title: "Id", width: 50 },
              { field: "Name", title: "Name", width: 80 },
              { field: "Designation", title: "Designation", width: 80 }
-
+                 
 
         ];
     }

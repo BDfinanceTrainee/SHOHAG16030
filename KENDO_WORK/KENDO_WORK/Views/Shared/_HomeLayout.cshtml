@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "_HomeLayout";
+}
+
+<h2>_HomeLayout</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <link href="~/UIFramework/KendoUI/kendo/kendoui.web/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/UIFramework/KendoUI/kendo/kendoui.web/styles/kendo.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/UIFramework/KendoUI/Css/Common.css" rel="stylesheet" />
+    <link href="~/UIFramework/KendoUI/Css/CommonSize.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/UIFramework/KendoUI/kendo/kendoui.web/js/kendo.all.min.js"></script>
+
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+</body>
+</html>
+

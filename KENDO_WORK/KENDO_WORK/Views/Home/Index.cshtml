@@ -1,0 +1,86 @@
+﻿<link href="~/Content/MyStyleSheet.css" rel="stylesheet" />
+<div class="container">
+
+    <hr />
+
+    <form class="row g-3 needs-validation" id="#border" novalidate>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="row mb-3">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label Email">EmployeeID</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="cmbTest" class="form-control form-control-sm" id="colFormLabelSm" placeholder="EmployeeID" asp-for="EmployeeID">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label Email">FirstName</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="FirstName" asp-for="FirstName">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label Email">LastName</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="LastName" asp-for="LastName">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label Email">City</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="City" placeholder="City" asp-for="City">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row mb-3">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label Email">Country</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Country" asp-for="Country">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label Email">Number</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Number" asp-for="Number">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label Email">EmailID</label>
+                    <div class="col-sm-10">
+                        <input type="Email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="EmailID" asp-for="EmailID">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label Email">Date</label>
+                    <div class="col-sm-10">
+                        <input type="text" id ="cmbDate" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Address" asp-for="Address">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="d-flex justify-content-between">
+                <a asp-controller="AdminUsers" asp-action="Index" asp-area="Admin" class="btn btn-danger" style="margin-left:29px;"><i class="icon-arrow-left52"></i> Back</a>
+                <button type="submit" class="btn btn-primary" style="margin-left:798px">Submit</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#cmbTest").kendoComboBox();
+        $("#cmbDate").kendoDatePicker();
+    });
+
+</script>
