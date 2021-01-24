@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -259,6 +261,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LetterSendingController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -327,6 +330,146 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="template\.gitignore" />
+    <Content Include="template\docs\404.html" />
+    <Content Include="template\docs\assets\css\adminlte.css" />
+    <Content Include="template\docs\assets\css\adminlte.min.css" />
+    <Content Include="template\docs\assets\css\alt\adminlte.components.css" />
+    <Content Include="template\docs\assets\css\alt\adminlte.components.min.css" />
+    <Content Include="template\docs\assets\css\alt\adminlte.core.css" />
+    <Content Include="template\docs\assets\css\alt\adminlte.core.min.css" />
+    <Content Include="template\docs\assets\css\alt\adminlte.extra-components.css" />
+    <Content Include="template\docs\assets\css\alt\adminlte.extra-components.min.css" />
+    <Content Include="template\docs\assets\css\alt\adminlte.pages.css" />
+    <Content Include="template\docs\assets\css\alt\adminlte.pages.min.css" />
+    <Content Include="template\docs\assets\css\alt\adminlte.plugins.css" />
+    <Content Include="template\docs\assets\css\alt\adminlte.plugins.min.css" />
+    <Content Include="template\docs\assets\css\docs.css" />
+    <Content Include="template\docs\assets\css\highlighter.css" />
+    <Content Include="template\docs\assets\img\AdminLTELogo.png" />
+    <Content Include="template\docs\assets\img\logo-xl.png" />
+    <Content Include="template\docs\assets\img\logo-xs.png" />
+    <Content Include="template\docs\assets\img\user1-128x128.jpg" />
+    <Content Include="template\docs\assets\img\user3-128x128.jpg" />
+    <Content Include="template\docs\assets\img\user4-128x128.jpg" />
+    <Content Include="template\docs\assets\img\user5-128x128.jpg" />
+    <Content Include="template\docs\assets\img\user6-128x128.jpg" />
+    <Content Include="template\docs\assets\img\user7-128x128.jpg" />
+    <Content Include="template\docs\assets\img\user8-128x128.jpg" />
+    <Content Include="template\docs\assets\js\adminlte.js" />
+    <Content Include="template\docs\assets\js\adminlte.min.js" />
+    <Content Include="template\docs\assets\js\demo.js" />
+    <Content Include="template\docs\assets\js\pages\dashboard.js" />
+    <Content Include="template\docs\assets\js\pages\dashboard2.js" />
+    <Content Include="template\docs\assets\js\pages\dashboard3.js" />
+    <Content Include="template\docs\assets\plugins\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="template\docs\assets\plugins\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="template\docs\assets\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="template\docs\assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\all.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\all.min.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\brands.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\brands.min.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\fontawesome.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\regular.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\regular.min.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\solid.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\solid.min.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\v4-shims.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="template\docs\assets\plugins\jquery\core.js" />
+    <Content Include="template\docs\assets\plugins\jquery\jquery.js" />
+    <Content Include="template\docs\assets\plugins\jquery\jquery.min.js" />
+    <Content Include="template\docs\assets\plugins\jquery\jquery.slim.js" />
+    <Content Include="template\docs\assets\plugins\jquery\jquery.slim.min.js" />
+    <Content Include="template\docs\assets\plugins\overlayScrollbars\css\OverlayScrollbars.css" />
+    <Content Include="template\docs\assets\plugins\overlayScrollbars\css\OverlayScrollbars.min.css" />
+    <Content Include="template\docs\assets\plugins\overlayScrollbars\js\jquery.overlayScrollbars.js" />
+    <Content Include="template\docs\assets\plugins\overlayScrollbars\js\jquery.overlayScrollbars.min.js" />
+    <Content Include="template\docs\assets\plugins\overlayScrollbars\js\OverlayScrollbars.js" />
+    <Content Include="template\docs\assets\plugins\overlayScrollbars\js\OverlayScrollbars.min.js" />
+    <Content Include="template\docs\assets\plugins\popper\esm\popper-utils.js" />
+    <Content Include="template\docs\assets\plugins\popper\esm\popper-utils.min.js" />
+    <Content Include="template\docs\assets\plugins\popper\esm\popper.js" />
+    <Content Include="template\docs\assets\plugins\popper\esm\popper.min.js" />
+    <Content Include="template\docs\assets\plugins\popper\popper-utils.js" />
+    <Content Include="template\docs\assets\plugins\popper\popper-utils.min.js" />
+    <Content Include="template\docs\assets\plugins\popper\popper.js" />
+    <Content Include="template\docs\assets\plugins\popper\popper.min.js" />
+    <Content Include="template\docs\assets\plugins\popper\umd\popper-utils.js" />
+    <Content Include="template\docs\assets\plugins\popper\umd\popper-utils.min.js" />
+    <Content Include="template\docs\assets\plugins\popper\umd\popper.js" />
+    <Content Include="template\docs\assets\plugins\popper\umd\popper.min.js" />
+    <Content Include="template\docs\_includes\foot.html" />
+    <Content Include="template\docs\_includes\footer.html" />
+    <Content Include="template\docs\_includes\head.html" />
+    <Content Include="template\docs\_includes\navbar.html" />
+    <Content Include="template\docs\_includes\sidebar.html" />
+    <Content Include="template\docs\_layouts\default.html" />
+    <Content Include="template\docs\_layouts\home.html" />
+    <Content Include="template\docs\_layouts\page.html" />
+    <Content Include="template\docs\_layouts\post.html" />
+    <Content Include="template\index.html" />
+    <Content Include="template\index2.html" />
+    <Content Include="template\index3.html" />
+    <Content Include="template\pages\charts\chartjs.html" />
+    <Content Include="template\pages\charts\flot.html" />
+    <Content Include="template\pages\charts\inline.html" />
+    <Content Include="template\pages\examples\404.html" />
+    <Content Include="template\pages\examples\500.html" />
+    <Content Include="template\pages\examples\blank.html" />
+    <Content Include="template\pages\examples\contacts.html" />
+    <Content Include="template\pages\examples\e_commerce.html" />
+    <Content Include="template\pages\examples\forgot-password.html" />
+    <Content Include="template\pages\examples\invoice-print.html" />
+    <Content Include="template\pages\examples\invoice.html" />
+    <Content Include="template\pages\examples\language-menu.html" />
+    <Content Include="template\pages\examples\legacy-user-menu.html" />
+    <Content Include="template\pages\examples\lockscreen.html" />
+    <Content Include="template\pages\examples\login.html" />
+    <Content Include="template\pages\examples\pace.html" />
+    <Content Include="template\pages\examples\profile.html" />
+    <Content Include="template\pages\examples\projects.html" />
+    <Content Include="template\pages\examples\project_add.html" />
+    <Content Include="template\pages\examples\project_detail.html" />
+    <Content Include="template\pages\examples\project_edit.html" />
+    <Content Include="template\pages\examples\recover-password.html" />
+    <Content Include="template\pages\examples\register.html" />
+    <Content Include="template\plugins\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="template\plugins\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="template\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="template\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="template\plugins\fontawesome-free\css\all.css" />
+    <Content Include="template\plugins\fontawesome-free\css\all.min.css" />
+    <Content Include="template\plugins\fontawesome-free\css\brands.css" />
+    <Content Include="template\plugins\fontawesome-free\css\brands.min.css" />
+    <Content Include="template\plugins\fontawesome-free\css\fontawesome.css" />
+    <Content Include="template\plugins\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="template\plugins\fontawesome-free\css\regular.css" />
+    <Content Include="template\plugins\fontawesome-free\css\regular.min.css" />
+    <Content Include="template\plugins\fontawesome-free\css\solid.css" />
+    <Content Include="template\plugins\fontawesome-free\css\solid.min.css" />
+    <Content Include="template\plugins\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="template\plugins\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="template\plugins\fontawesome-free\css\v4-shims.css" />
+    <Content Include="template\plugins\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="template\plugins\icheck-bootstrap\icheck-bootstrap.css" />
+    <Content Include="template\plugins\icheck-bootstrap\icheck-bootstrap.min.css" />
+    <Content Include="template\plugins\jquery\core.js" />
+    <Content Include="template\plugins\jquery\jquery.js" />
+    <Content Include="template\plugins\jquery\jquery.min.js" />
+    <Content Include="template\plugins\jquery\jquery.slim.js" />
+    <Content Include="template\plugins\jquery\jquery.slim.min.js" />
+    <Content Include="template\starter.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -342,9 +485,123 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="template\.babelrc" />
+    <Content Include="template\.browserslistrc" />
+    <Content Include="template\.editorconfig" />
+    <Content Include="template\.eslintignore" />
+    <Content Include="template\.eslintrc" />
+    <Content Include="template\.npmignore" />
+    <Content Include="template\.travis.yml" />
+    <Content Include="template\composer.json" />
+    <Content Include="template\LICENSE" />
+    <Content Include="template\package-lock.json" />
+    <Content Include="template\package.json" />
+    <Content Include="template\README.md" />
+    <Content Include="template\docs\assets\css\adminlte.css.map" />
+    <Content Include="template\docs\assets\css\adminlte.min.css.map" />
+    <Content Include="template\docs\assets\css\alt\adminlte.components.css.map" />
+    <Content Include="template\docs\assets\css\alt\adminlte.components.min.css.map" />
+    <Content Include="template\docs\assets\css\alt\adminlte.core.css.map" />
+    <Content Include="template\docs\assets\css\alt\adminlte.core.min.css.map" />
+    <Content Include="template\docs\assets\css\alt\adminlte.extra-components.css.map" />
+    <Content Include="template\docs\assets\css\alt\adminlte.extra-components.min.css.map" />
+    <Content Include="template\docs\assets\css\alt\adminlte.pages.css.map" />
+    <Content Include="template\docs\assets\css\alt\adminlte.pages.min.css.map" />
+    <Content Include="template\docs\assets\css\alt\adminlte.plugins.css.map" />
+    <Content Include="template\docs\assets\css\alt\adminlte.plugins.min.css.map" />
+    <Content Include="template\docs\assets\js\adminlte.js.map" />
+    <Content Include="template\docs\assets\js\adminlte.min.js.map" />
+    <Content Include="template\docs\assets\plugins\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="template\docs\assets\plugins\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="template\docs\assets\plugins\bootstrap\js\bootstrap.js.map" />
+    <Content Include="template\docs\assets\plugins\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="template\docs\assets\plugins\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="template\docs\assets\plugins\jquery\jquery.min.map" />
+    <Content Include="template\docs\assets\plugins\jquery\jquery.slim.min.map" />
+    <Content Include="template\docs\assets\plugins\popper\esm\popper-utils.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\esm\popper-utils.min.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\esm\popper.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\esm\popper.min.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\popper-utils.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\popper-utils.min.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\popper.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\popper.min.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\umd\popper-utils.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\umd\popper-utils.min.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\umd\popper.js.flow" />
+    <Content Include="template\docs\assets\plugins\popper\umd\popper.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\umd\popper.min.js.map" />
+    <Content Include="template\docs\assets\plugins\popper\umd\poppper.js.flow" />
+    <Content Include="template\docs\components\boxes.md" />
+    <Content Include="template\docs\components\cards.md" />
+    <Content Include="template\docs\components\control-sidebar.md" />
+    <Content Include="template\docs\components\direct-chat.md" />
+    <Content Include="template\docs\components\main-header.md" />
+    <Content Include="template\docs\components\main-sidebar.md" />
+    <Content Include="template\docs\components\miscellaneous.md" />
+    <Content Include="template\docs\components\plugins.md" />
+    <Content Include="template\docs\components\ribbons.md" />
+    <Content Include="template\docs\components\timeline.md" />
+    <Content Include="template\docs\javascript\card-refresh.md" />
+    <Content Include="template\docs\javascript\card-widget.md" />
+    <Content Include="template\docs\javascript\control-sidebar.md" />
+    <Content Include="template\docs\javascript\direct-chat.md" />
+    <Content Include="template\docs\javascript\layout.md" />
+    <Content Include="template\docs\javascript\push-menu.md" />
+    <Content Include="template\docs\javascript\toasts.md" />
+    <Content Include="template\docs\javascript\todo-list.md" />
+    <Content Include="template\docs\javascript\treeview.md" />
+    <Content Include="template\docs\.npmignore" />
+    <Content Include="template\docs\_config.yml" />
+    <Content Include="template\docs\browser-support.md" />
+    <Content Include="template\docs\dependencies.md" />
+    <Content Include="template\docs\faq.md" />
+    <Content Include="template\docs\Gemfile" />
+    <Content Include="template\docs\implementations.md" />
+    <Content Include="template\docs\index.md" />
+    <Content Include="template\docs\layout.md" />
+    <Content Include="template\docs\license.md" />
+    <Content Include="template\docs\upgrade-guide.md" />
+    <Content Include="Views\Shared\_masterlayout.cshtml" />
+    <Content Include="Views\LetterSending\Index.cshtml" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="template\plugins\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="template\plugins\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="template\plugins\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="template\plugins\bootstrap\js\bootstrap.js.map" />
+    <Content Include="template\plugins\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="template\plugins\jquery\jquery.min.map" />
+    <Content Include="template\plugins\jquery\jquery.slim.min.map" />
+    <Content Include="template\plugins\icheck-bootstrap\LICENSE" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="template\.github\" />
+    <Folder Include="template\build\" />
+    <Folder Include="template\dist\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -355,6 +612,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
@@ -362,6 +620,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
