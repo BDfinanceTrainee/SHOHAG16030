@@ -14,22 +14,6 @@
     <Property Name="DesignationId" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
-  <EntityType Name="Letter">
-    <Key>
-      <PropertyRef Name="LetterId" />
-    </Key>
-    <Property Name="LetterId" Type="Int32" Nullable="false" />
-    <Property Name="ReferenceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SenderId" Type="Int32" Nullable="false" />
-    <Property Name="BranchId" Type="Int32" Nullable="false" />
-    <Property Name="LetterDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ReceiveDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="RecipientId" Type="Int32" Nullable="false" />
-    <Property Name="SacnnedImage" Type="Boolean" Nullable="false" />
-    <Property Name="LetterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LetterStatusId" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityType Name="LetterStatu">
     <Key>
       <PropertyRef Name="LetterStatusId" />
@@ -115,7 +99,6 @@
   <EntityContainer Name="LetterManagementDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Departments" EntityType="Self.Department" />
     <EntitySet Name="Designations" EntityType="Self.Designation" />
-    <EntitySet Name="Letters" EntityType="Self.Letter" />
     <EntitySet Name="LetterStatus" EntityType="Self.LetterStatu" />
     <EntitySet Name="Recipients" EntityType="Self.Recipient" />
     <EntitySet Name="SenderTypes" EntityType="Self.SenderType" />
@@ -125,5 +108,22 @@
     <EntitySet Name="Branches" EntityType="Self.Branch" />
     <EntitySet Name="Employees" EntityType="Self.Employee" />
     <EntitySet Name="Senders" EntityType="Self.Sender" />
+    <EntitySet Name="Letters" EntityType="LetterManagementDBModel.Letter" />
   </EntityContainer>
+  <EntityType Name="Letter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SenderId" Type="Int32" Nullable="false" />
+    <Property Name="RecipientId" Type="Int32" Nullable="false" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReferenceNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LetterDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ReceiveDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="LetterType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LetterStatusId" Type="Int32" Nullable="false" />
+    <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

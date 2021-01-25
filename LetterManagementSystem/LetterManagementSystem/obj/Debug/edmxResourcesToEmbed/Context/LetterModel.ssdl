@@ -54,19 +54,19 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Employee' does not have a p
   </EntityType>
   <EntityType Name="Letter">
     <Key>
-      <PropertyRef Name="LetterId" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="LetterId" Type="int" Nullable="false" />
-    <Property Name="ReferenceNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SenderId" Type="int" Nullable="false" />
-    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="RecipientId" Type="int" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReferenceNo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LetterDate" Type="datetime" Nullable="false" />
     <Property Name="ReceiveDate" Type="datetime" Nullable="false" />
-    <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="RecipientId" Type="int" Nullable="false" />
-    <Property Name="SacnnedImage" Type="bit" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
     <Property Name="LetterType" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LetterStatusId" Type="int" Nullable="false" />
+    <Property Name="ScannedImage" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="LetterStatus">
     <Key>

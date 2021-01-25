@@ -27,7 +27,6 @@ namespace LetterManagementSystem.Context
     
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Designation> Designations { get; set; }
-        public virtual DbSet<Letter> Letters { get; set; }
         public virtual DbSet<LetterStatu> LetterStatus { get; set; }
         public virtual DbSet<Recipient> Recipients { get; set; }
         public virtual DbSet<SenderType> SenderTypes { get; set; }
@@ -37,5 +36,6 @@ namespace LetterManagementSystem.Context
         public virtual DbSet<Branch> Branches { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Sender> Senders { get; set; }
+        public virtual DbSet<Letter> Letters { get; set; }
     }
 }

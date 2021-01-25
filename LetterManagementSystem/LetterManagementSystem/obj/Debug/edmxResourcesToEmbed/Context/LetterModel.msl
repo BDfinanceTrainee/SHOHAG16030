@@ -17,23 +17,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Letters">
-      <EntityTypeMapping TypeName="LetterManagementDBModel.Letter">
-        <MappingFragment StoreEntitySet="Letter">
-          <ScalarProperty Name="LetterId" ColumnName="LetterId" />
-          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
-          <ScalarProperty Name="SenderId" ColumnName="SenderId" />
-          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
-          <ScalarProperty Name="LetterDate" ColumnName="LetterDate" />
-          <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
-          <ScalarProperty Name="Subject" ColumnName="Subject" />
-          <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
-          <ScalarProperty Name="SacnnedImage" ColumnName="SacnnedImage" />
-          <ScalarProperty Name="LetterType" ColumnName="LetterType" />
-          <ScalarProperty Name="LetterStatusId" ColumnName="LetterStatusId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="LetterStatus">
       <EntityTypeMapping TypeName="LetterManagementDBModel.LetterStatu">
         <MappingFragment StoreEntitySet="LetterStatus">
@@ -113,6 +96,23 @@
           <ScalarProperty Name="SenderId" ColumnName="SenderId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Letters">
+      <EntityTypeMapping TypeName="LetterManagementDBModel.Letter">
+        <MappingFragment StoreEntitySet="Letter">
+          <ScalarProperty Name="ScannedImage" ColumnName="ScannedImage" />
+          <ScalarProperty Name="LetterStatusId" ColumnName="LetterStatusId" />
+          <ScalarProperty Name="LetterType" ColumnName="LetterType" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+          <ScalarProperty Name="LetterDate" ColumnName="LetterDate" />
+          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
+          <ScalarProperty Name="SenderId" ColumnName="SenderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
