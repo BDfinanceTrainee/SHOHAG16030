@@ -707,6 +707,7 @@
     <Content Include="template\Register\__MACOSX\colorlib-regform-35\images\._form-v9.jpg" />
     <Content Include="template\Register\__MACOSX\colorlib-regform-35\images\bodyimg.png" />
     <Content Include="template\starter.html" />
+    <Content Include="UploadedFiles\1_0FqDC0_r1f5xFz3IywLYRA214530163.jpeg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1100,7 +1101,6 @@
     <Folder Include="template\.github\" />
     <Folder Include="template\build\" />
     <Folder Include="template\dist\" />
-    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

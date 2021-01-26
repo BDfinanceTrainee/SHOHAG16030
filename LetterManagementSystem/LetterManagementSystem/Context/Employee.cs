@@ -14,9 +14,9 @@ namespace LetterManagementSystem.Context
     
     public partial class Employee
     {
-        public int EmployeeId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public int DepartmentId { get; set; }
-        public int BranchId { get; set; }
+        public string DepartmentId { get; set; }
+        public string BranchId { get; set; }
     }
 }

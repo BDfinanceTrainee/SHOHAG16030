@@ -38,34 +38,29 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Branch' does not have a pri
     <Property Name="DesignationId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LetterManagementDB.dbo.Employee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Employee">
     <Key>
-      <PropertyRef Name="EmployeeId" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="DepartmentId" />
-      <PropertyRef Name="BranchId" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DepartmentId" Type="int" Nullable="false" />
-    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="DepartmentId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BranchId" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Letter">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SenderId" Type="int" Nullable="false" />
-    <Property Name="RecipientId" Type="int" Nullable="false" />
+    <Property Name="LetterFrom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Responsible" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Subject" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ReferenceNo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LetterDate" Type="datetime" Nullable="false" />
     <Property Name="ReceiveDate" Type="datetime" Nullable="false" />
     <Property Name="BranchId" Type="int" Nullable="false" />
     <Property Name="LetterType" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LetterStatusId" Type="int" Nullable="false" />
+    <Property Name="LetterStatus" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ScannedImage" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="LetterStatus">
@@ -123,6 +118,7 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
   <EntityContainer Name="LetterManagementDBModelStoreContainer">
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Letter" EntityType="Self.Letter" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LetterStatus" EntityType="Self.LetterStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Recipient" EntityType="Self.Recipient" Schema="dbo" store:Type="Tables" />
@@ -142,14 +138,6 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
     [Branch].[BranchId] AS [BranchId], 
     [Branch].[Name] AS [Name]
     FROM [dbo].[Branch] AS [Branch]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Employee" EntityType="Self.Employee" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Employee].[EmployeeId] AS [EmployeeId], 
-    [Employee].[Name] AS [Name], 
-    [Employee].[DepartmentId] AS [DepartmentId], 
-    [Employee].[BranchId] AS [BranchId]
-    FROM [dbo].[Employee] AS [Employee]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Sender" EntityType="Self.Sender" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

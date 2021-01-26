@@ -15,26 +15,18 @@
                 <div class="row">
                     <div class="col-md-6 border-right p-2">
                         <div class="form-group row">
-                            <label for="colFormLabelSm" class="col-sm-3 col-form-label SenderId">Sender ID</label>
+                            <label for="colFormLabelSm" class="col-sm-3 col-form-label SenderId">Letter From</label>
                             <div class="col-lg-8">
-                                @Html.TextBoxFor(a => a.SenderId, new { @class = "form-control", @placeholder = "Sender ID" })
-                                @Html.ValidationMessageFor(a => a.SenderId)
+                                @Html.TextBoxFor(a => a.LetterFrom, new { @class = "form-control", @placeholder = "Letter From" })
+                                @Html.ValidationMessageFor(a => a.LetterFrom)
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="colFormLabelSm" class="col-sm-3 col-form-label RecipientId">Recipient ID</label>
+                        <div class="form-group row">  
+                            <label for="colFormLabelSm" class="col-sm-3 col-form-label RecipientId">Responsible</label>
                             <div class="col-lg-8">
-                                @Html.TextBoxFor(a => a.RecipientId, new { @class = "form-control", @placeholder = "Recipient ID" })
-                                @Html.ValidationMessageFor(a => a.RecipientId)
+                                @Html.DropDownListFor(model => model.Responsible, new SelectList(ViewBag.Employees, "Name", "Name", "Select Name"))
+                                @Html.ValidationMessageFor(model => model.Responsible, "", new { @class = "text-danger" })
                             </div>
-
-                            @*<select>
-                                <option>Select</option>
-                                <option>MD</option>
-                                <option>CFO</option>
-                                <option>IT HEAD</option>
-                                <option>HR HEAD</option>
-                            </select>*@
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label Subject">Subject</label>
@@ -53,15 +45,15 @@
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterDate">Letter Date</label>
                             <div class="col-lg-8">
-                                @Html.TextBoxFor(x => x.LetterDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @placeholder = "Letter Date" })
-                                @Html.ValidationMessageFor(a => a.LetterDate)
+                                @Html.EditorFor(model => model.LetterDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LetterDate, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label ReceiveDate">Receive Date</label>
                             <div class="col-lg-8">
-                                @Html.TextBoxFor(x => x.ReceiveDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @placeholder = "Receive Date" })
-                                @Html.ValidationMessageFor(a => a.ReceiveDate)
+                                @Html.EditorFor(model => model.ReceiveDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ReceiveDate, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
@@ -72,14 +64,6 @@
                                 @Html.TextBoxFor(a => a.BranchId, new { @class = "form-control", @placeholder = "Branch ID" })
                                 @Html.ValidationMessageFor(a => a.BranchId)
                             </div>
-
-                            @*<select>
-                                <option>Select</option>
-                                <option>DilKusha Branch</option>
-                                <option>Chittagong Branch</option>
-                                <option>Jossore Branch</option>
-                                <option>Khulna Branch</option>
-                            </select>*@
                         </div>
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterType">Letter Type</label>
@@ -87,31 +71,19 @@
                                 @Html.TextBoxFor(a => a.LetterType, new { @class = "form-control", @placeholder = "Letter Type" })
                                 @Html.ValidationMessageFor(a => a.LetterType)
                             </div>
-
-                            @*<select>
-                                <option>Select</option>
-                                <option>Inviatation</option>
-                                <option>Proposal</option>
-                                <option>Confirmation</option>
-                            </select>*@
                         </div>
                         <div class="form-group row">
-                            <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterStatusId">Letter Status ID</label>
+                            <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterStatusId">Letter Status</label>
                             <div class="col-lg-8">
-                                @Html.TextBoxFor(a => a.LetterStatusId, new { @class = "form-control", @placeholder = "Letter Status ID" })
-                                @Html.ValidationMessageFor(a => a.LetterStatusId)
+                                @Html.TextBoxFor(a => a.LetterStatus, new { @class = "form-control", @placeholder = "Letter Status" })
+                                @Html.ValidationMessageFor(a => a.LetterStatus)
                             </div>
-                           @*<select>
-                                <option>Select</option>
-                                <option>In Processing</option>
-                                <option>Closed</option>
-                            </select>*@
                         </div>               
                         <div class="form-group">
-                            <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterStatusId">Scaned Image</label>
-                            <div class="col-lg-8">
+                            <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterStatusId"> Upload Image</label>
+                            
                                <input type="file" name="ImageFile" required>
-                            </div>
+                          
                         </div>
                         <button type="submit" class="btn btn-primary btn-md btn-block">Submit</button>
 

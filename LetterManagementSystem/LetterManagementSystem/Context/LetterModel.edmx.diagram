@@ -14,8 +14,8 @@
         <EntityTypeShape EntityType="LetterManagementDBModel.User" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Assignment" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Branch" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.Employee" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Sender" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.Employee" Width="1.5" PointX="7.375" PointY="6.75" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Letter" Width="1.5" PointX="0.75" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>

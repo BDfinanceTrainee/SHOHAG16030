@@ -74,18 +74,6 @@
     <Property Name="BranchId" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
-  <EntityType Name="Employee">
-    <Key>
-      <PropertyRef Name="EmployeeId" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="DepartmentId" />
-      <PropertyRef Name="BranchId" />
-    </Key>
-    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
-    <Property Name="BranchId" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityType Name="Sender">
     <Key>
       <PropertyRef Name="SenderId" />
@@ -106,24 +94,33 @@
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="Assignments" EntityType="Self.Assignment" />
     <EntitySet Name="Branches" EntityType="Self.Branch" />
-    <EntitySet Name="Employees" EntityType="Self.Employee" />
     <EntitySet Name="Senders" EntityType="Self.Sender" />
+    <EntitySet Name="Employees" EntityType="LetterManagementDBModel.Employee" />
     <EntitySet Name="Letters" EntityType="LetterManagementDBModel.Letter" />
   </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentId" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BranchId" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="Letter">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="SenderId" Type="Int32" Nullable="false" />
-    <Property Name="RecipientId" Type="Int32" Nullable="false" />
+    <Property Name="LetterFrom" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Responsible" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Subject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ReferenceNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LetterDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ReceiveDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="BranchId" Type="Int32" Nullable="false" />
     <Property Name="LetterType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="LetterStatusId" Type="Int32" Nullable="false" />
+    <Property Name="LetterStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

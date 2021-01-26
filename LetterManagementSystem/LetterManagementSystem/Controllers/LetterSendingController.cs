@@ -21,7 +21,11 @@ namespace LetterManagementSystem.Controllers
         [HttpGet]
         public ActionResult IncomingLetter()
         {
-            return View();
+            using (LetterManagementDBEntities db = new LetterManagementDBEntities())
+            {
+                ViewBag.Employees = db.Employees.ToList();             
+                return View();
+            }
         }
         [HttpPost]
         public  ActionResult IncomingLetter(Letter model)
@@ -48,11 +52,15 @@ namespace LetterManagementSystem.Controllers
         {           
             using (LetterManagementDBEntities dc = new LetterManagementDBEntities())
             {   
-                var IncomingLetters = dc.Letters.OrderBy(a => a.SenderId).ToList();
+                var IncomingLetters = dc.Letters.OrderBy(a => a.LetterFrom).ToList();
                 return Json(new { data = IncomingLetters }, JsonRequestBehavior.AllowGet);
 
             }
 
+        }
+        public ActionResult Action()
+        {
+            return View();
         }
 
     }

@@ -34,8 +34,8 @@ namespace LetterManagementSystem.Context
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Assignment> Assignments { get; set; }
         public virtual DbSet<Branch> Branches { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Sender> Senders { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Letter> Letters { get; set; }
     }
 }
