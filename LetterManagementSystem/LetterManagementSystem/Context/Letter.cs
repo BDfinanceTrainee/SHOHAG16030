@@ -19,6 +19,7 @@ namespace LetterManagementSystem.Context
         public int Id { get; set; }
         public string LetterFrom { get; set; }
         public string Responsible { get; set; }
+        public string Assigned { get; set; }
         public string Subject { get; set; }
         public string ReferenceNo { get; set; }
         [DataType(DataType.Date)]
@@ -29,10 +30,10 @@ namespace LetterManagementSystem.Context
         [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
         [Display(Name = "Evening Showtime")]
         public System.DateTime ReceiveDate { get; set; }
-        public int BranchId { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
+        public string BranchName { get; set; }
         public string LetterType { get; set; }
         public string LetterStatus { get; set; }
         public string ScannedImage { get; set; }
-        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

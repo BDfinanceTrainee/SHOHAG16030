@@ -3,7 +3,7 @@
 }
 <!DOCTYPE html>
 <html>
-<hr/>
+<br/>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
@@ -25,20 +25,20 @@
                     <th>Letter From</th>
                     <th>Subject</th>
                     <th>Receive Date</th>
-                    <th>Letter Type</th>
-                    <th>Letter Image</th>
+                    <th>Letter Status</th>
+                    @*<th>Letter Image</th>*@
+                    <th>Responsible</th>
+                    <th>Feedback</th>
+                    <th>Assigned</th>                   
                 </tr>
             </thead>
         </table>
     </div>
-
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script src="~/template/AdminLTE-3.0.2/dist/js/adminlte.min.js"></script>
-    
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>    
     <script>
         $(document).ready(function () {
             var oTable = $('#myDatatable').DataTable({
@@ -48,69 +48,31 @@
                     "datatype" : "json"
                 },
                 "columns": [
-                    { "data": "SenderId", "autoWidth": true },
+                    { "data": "LetterFrom", "autoWidth": true },
                     { "data": "Subject", "autoWidth": true },
-                    { "data": "ReceiveDate", "autoWidth": true },                   
-                    { "data": "LetterType", "autoWidth": true },                  
-                    { "data": "ScannedImage", "autoWidth": true },
-                    //{
-                    //    "data": "EmployeeID", "width": "50px", "render": function (data) {
-                    //        return '<a class="popup" href="/home/save/'+data+'">Edit</a>';
-                    //    }
-                    //},
-                    //{
-                    //    "data": "EmployeeID", "width": "50px", "render": function (data) {
-                    //        return '<a class="popup" href="/home/delete/' + data + '">Delete</a>';
-                    //    }
-                    //}
+                   {
+                       data: "ReceiveDate",
+                       render: function (data, type, myDatatable) {
+                           return myDatatable.ReceiveDate;
+                       }
+                   },
+                    { "data": "LetterStatus", "autoWidth": true },
+                    //{ "data": "ScannedImage", "autoWidth": true },
+                   
+                     { "data": "Responsible", "autoWidth": true },
+                    {
+                        "data": "LetterID", "width": "50px", "render": function (data) {
+                            return '<a class="popup"  href="/home/delete/' + data + '">comment<br/>see all comments</a>';
+                        }
+                    },
+                     {
+                         "data": "LetterID", "width": "50px", "render": function (data) {
+                             return '<a class="popup"  href="/home/delete/' + data + '">Assign</a>';
+                         }
+                     },
                 ]
             })
-            //$('.tablecontainer').on('click', 'a.popup', function (e) {
-            //    e.preventDefault();
-            //    OpenPopup($(this).attr('href'));
-            //})
-            //function OpenPopup(pageUrl) {
-            //    var $pageContent = $('<div/>');
-            //    $pageContent.load(pageUrl, function () {
-            //        $('#popupForm', $pageContent).removeData('validator');
-            //        $('#popupForm', $pageContent).removeData('unobtrusiveValidation');
-            //        $.validator.unobtrusive.parse('form');
-
-            //    });
-
-            //    $dialog = $('<div class="popupWindow" style="overflow:auto"></div>')
-            //              .html($pageContent)
-            //              .dialog({
-            //                  draggable : false,
-            //                  autoOpen : false,
-            //                  resizable : false,
-            //                  model : true,
-            //                  title:'Popup Dialog',
-            //                  height : 550,
-            //                  width : 600,
-            //                  close: function () {
-            //                      $dialog.dialog('destroy').remove();
-            //                  }
-            //              })
-
-            //    $('.popupWindow').on('submit', '#popupForm', function (e) {
-            //        var url = $('#popupForm')[0].action;
-            //        $.ajax({
-            //            type : "POST",
-            //            url : url,
-            //            data: $('#popupForm').serialize(),
-            //            success: function (data) {
-            //                if (data.status) {
-            //                    $dialog.dialog('close');
-            //                    oTable.ajax.reload();
-            //                }
-            //            }
-            //        })
-
-            //        e.preventDefault();
-            //    })
-            //    $dialog.dialog('open');
-            //}
+           
         })
     </script>
 </body>

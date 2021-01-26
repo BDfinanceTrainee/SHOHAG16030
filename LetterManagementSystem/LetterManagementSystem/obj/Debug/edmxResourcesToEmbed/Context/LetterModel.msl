@@ -105,11 +105,12 @@
           <ScalarProperty Name="ScannedImage" ColumnName="ScannedImage" />
           <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
           <ScalarProperty Name="LetterType" ColumnName="LetterType" />
-          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
           <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
           <ScalarProperty Name="LetterDate" ColumnName="LetterDate" />
           <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Assigned" ColumnName="Assigned" />
           <ScalarProperty Name="Responsible" ColumnName="Responsible" />
           <ScalarProperty Name="LetterFrom" ColumnName="LetterFrom" />
           <ScalarProperty Name="Id" ColumnName="Id" />

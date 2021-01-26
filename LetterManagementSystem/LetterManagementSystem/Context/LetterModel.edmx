@@ -59,11 +59,12 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Branch' does not have a pri
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LetterFrom" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Responsible" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Assigned" Type="nvarchar(max)" />
           <Property Name="Subject" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ReferenceNo" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LetterDate" Type="datetime" Nullable="false" />
           <Property Name="ReceiveDate" Type="datetime" Nullable="false" />
-          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LetterType" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LetterStatus" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ScannedImage" Type="nvarchar(max)" />
@@ -270,11 +271,12 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LetterFrom" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Responsible" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Assigned" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Subject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ReferenceNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LetterDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ReceiveDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="BranchId" Type="Int32" Nullable="false" />
+          <Property Name="BranchName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LetterType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LetterStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -389,11 +391,12 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
                 <ScalarProperty Name="ScannedImage" ColumnName="ScannedImage" />
                 <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
                 <ScalarProperty Name="LetterType" ColumnName="LetterType" />
-                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
                 <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
                 <ScalarProperty Name="LetterDate" ColumnName="LetterDate" />
                 <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Assigned" ColumnName="Assigned" />
                 <ScalarProperty Name="Responsible" ColumnName="Responsible" />
                 <ScalarProperty Name="LetterFrom" ColumnName="LetterFrom" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

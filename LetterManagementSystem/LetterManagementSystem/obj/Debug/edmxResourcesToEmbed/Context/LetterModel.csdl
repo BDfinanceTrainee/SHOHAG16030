@@ -114,11 +114,12 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LetterFrom" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Responsible" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Assigned" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Subject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ReferenceNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LetterDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ReceiveDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="BranchName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LetterType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LetterStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
