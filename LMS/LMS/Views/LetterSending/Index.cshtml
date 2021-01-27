@@ -1,0 +1,127 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <style>
+        span.field-validation-error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <div style="width:90%; margin:0 auto" class="tablecontainer">
+       @* <a class="popup btn btn-primary" href="/LetterSending/Commentpopup/0" style="margin-bottom:20px; margin-top:20px;">AssignAndFeedBack</a>*@
+        <a class="popup btn btn-primary" href="/LetterSending/AllFeedBack" style="margin-bottom:20px; margin-top:20px;">SeeAllComments</a>
+
+        <table id="myDatatable">
+            <thead>
+                <tr>
+                    <th>Letter From</th>
+                    <th>Subject</th>
+                    <th>Receive Date</th>
+                    <th>Letter Status</th>
+                    @*<th>Letter Image</th>*@
+                    <th>Assigned</th>
+                    <th><button>Reassign&&Feedback</button></th>
+                    <th><button>SeeAllFeedback</button></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            var oTable = $('#myDatatable').DataTable({
+                "ajax": {
+                    "url": '/LetterSending/ViewAllIncomingLetter',
+                    "type" : "get",
+                    "datatype" : "json"
+                },
+                "columns": [
+                    { "data": "LetterFrom", "autoWidth": true },
+                    { "data": "Subject", "autoWidth": true },
+                    { "data": "ReceiveDate", "autoWidth": true },
+                    { "data": "LetterStatus", "autoWidth": true },
+                    //{ "data": "LetterImage", "autoWidth": true },
+                    { "data": "Responsible", "autoWidth": true },
+
+                    {
+                        "data": "ReferenceNo", "width": "50px", "render": function (data) {
+                            return '<a class="popup" href="/LetterSending/Commentpopup/' + data + '">ReassignAndFeedBack</a>';
+                        }
+                    },
+
+                    {
+                        "data": "ReferenceNo", "width": "50px", "render": function (data) {
+                            return '<a href="/LetterSending/AllFeedBack/' + data + '">SeeAllFeedBack</a>';
+                        }
+                    }
+                ]
+            })
+            $('.tablecontainer').on('click', 'a.popup', function (e) {
+                e.preventDefault();
+                OpenPopup($(this).attr('href'));
+            })
+            function OpenPopup(pageUrl) {
+                var $pageContent = $('<div/>');
+                $pageContent.load(pageUrl, function () {
+                    $('#popupForm', $pageContent).removeData('validator');
+                    $('#popupForm', $pageContent).removeData('unobtrusiveValidation');
+                    $.validator.unobtrusive.parse('form');
+
+                });
+
+                $dialog = $('<div class="popupWindow" style="overflow:auto"></div>')
+                          .html($pageContent)
+                          .dialog({
+                              draggable : false,
+                              autoOpen : false,
+                              resizable : false,
+                              model : true,
+                              title:'Popup Dialog',
+                              height : 400,
+                              width : 500,
+                              close: function () {
+                                  $dialog.dialog('destroy').remove();
+                              }
+                          })
+
+                $('.popupWindow').on('submit', '#popupForm', function (e) {
+                    var url = $('#popupForm')[0].action;
+                    $.ajax({
+                        type : "POST",
+                        url : url,
+                        data: $('#popupForm').serialize(),
+                        success: function (data) {
+                            if (data.status) {
+                                $dialog.dialog('close');
+                                oTable.ajax.reload();
+                            }
+                        }
+                    })
+
+                    e.preventDefault();
+                })
+                $dialog.dialog('open');
+            }
+        })
+    </script>
+</body>
+</html>

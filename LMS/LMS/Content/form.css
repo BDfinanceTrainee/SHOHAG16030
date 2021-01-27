@@ -1,0 +1,12 @@
+﻿
+.btn-block {
+    display: block;
+    width: 92%;
+}
+
+select {
+    word-wrap: normal;
+    width: 340px;
+    padding-left:10px;
+    margin-left: 8px;
+}

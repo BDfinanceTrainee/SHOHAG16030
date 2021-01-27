@@ -1,0 +1,53 @@
+﻿@model LMS.Context.Feedback
+
+@using (Html.BeginForm("Commentpopup", "LetterSending", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="">
+        <fieldset class="mb-3">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-12 border-right p-2">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-3 col-form-label ReferenceNO">Reference NO.#</label>
+                        <div class="col-lg-8">
+                            @Html.TextBoxFor(a => a.ReferenceNo, new { @class = "form-control", @placeholder = "Reference number" })
+                            @Html.ValidationMessageFor(a => a.ReferenceNo)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-3 col-form-label ReceiveDate">Date</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-3 col-form-label ReferenceNO">Responsible</label>
+                        <div class="col-lg-8">
+                            @Html.TextBoxFor(a => a.Responsible, new { @class = "form-control", @placeholder = "Responsible" })
+                            @Html.ValidationMessageFor(a => a.Responsible)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-3 col-form-label BranchId">Assign</label>
+                        <div class="col-lg-8">
+                            @Html.TextBoxFor(a => a.Assign, new { @class = "form-control", @placeholder = "Assign someone" })
+                            @Html.ValidationMessageFor(a => a.Assign)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterType">FeedBack</label>
+                        <div class="col-lg-8">
+                            @Html.TextAreaFor(a => a.Comments, new { @class = "form-control", @placeholder = "Write a comment" })
+                            @Html.ValidationMessageFor(a => a.Comments)
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-md btn-block">Submit</button>
+
+                </div>
+            </div>
+        </fieldset>
+    </div>
+}
+
