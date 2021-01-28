@@ -20,14 +20,8 @@ namespace LMS.Context
         public string LetterFrom { get; set; }
         public string Responsible { get; set; }
         public string Subject { get; set; }
-        public string ReferenceNo { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Evening Showtime")]
-        public System.DateTime LetterDate { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Evening Showtime")]
+        public string ReferenceNo { get; set; }       
+        public System.DateTime LetterDate { get; set; }      
         public System.DateTime ReceiveDate { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
         public string BranchName { get; set; }

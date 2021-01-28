@@ -52,12 +52,12 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Branch' does not have a pri
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="LetterId" Type="int" Nullable="false" />
-    <Property Name="ReferenceNo" Type="nvarchar" MaxLength="50" />
-    <Property Name="Date" Type="datetime" />
-    <Property Name="Responsible" Type="nvarchar(max)" />
-    <Property Name="Assign" Type="nvarchar(max)" />
-    <Property Name="Comments" Type="nchar" MaxLength="10" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="LetterStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReferenceNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Responsible" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Assign" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Letter">
     <Key>

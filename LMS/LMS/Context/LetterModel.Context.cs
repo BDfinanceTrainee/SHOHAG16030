@@ -35,7 +35,7 @@ namespace LMS.Context
         public virtual DbSet<Assignment> Assignments { get; set; }
         public virtual DbSet<Branch> Branches { get; set; }
         public virtual DbSet<Sender> Senders { get; set; }
-        public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Letter> Letters { get; set; }
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
     }
 }

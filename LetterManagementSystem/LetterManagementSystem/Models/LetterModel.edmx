@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LetterManagementDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LetterManagementDB.dbo.Assignment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="AssignmentId" />
+            <PropertyRef Name="LetterId" />
+            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="FeedBack" />
+          </Key>
+          <Property Name="AssignmentId" Type="int" Nullable="false" />
+          <Property Name="LetterId" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="FeedBack" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LetterManagementDB.dbo.Branch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="BranchId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="DesignationId" />
+          </Key>
+          <Property Name="DesignationId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DepartmentId" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BranchId" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="ReferenceNo" Type="nvarchar(max)" />
+          <Property Name="Responsible" Type="nvarchar(max)" />
+          <Property Name="Assign" Type="nvarchar(max)" />
+          <Property Name="LetterStatus" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Letter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LetterFrom" Type="nvarchar(max)" />
+          <Property Name="Responsible" Type="nvarchar(max)" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="ReferenceNo" Type="nvarchar(max)" />
+          <Property Name="LetterDate" Type="datetime" />
+          <Property Name="ReceiveDate" Type="datetime" />
+          <Property Name="BranchName" Type="nvarchar(max)" />
+          <Property Name="LetterType" Type="nvarchar(max)" />
+          <Property Name="LetterStatus" Type="nvarchar(max)" />
+          <Property Name="ScannedImage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LetterStatus">
+          <Key>
+            <PropertyRef Name="LetterStatusId" />
+          </Key>
+          <Property Name="LetterStatusId" Type="int" Nullable="false" />
+          <Property Name="LetterStatus" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recipient">
+          <Key>
+            <PropertyRef Name="RecipientId" />
+          </Key>
+          <Property Name="RecipientId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Sender">
+          <Key>
+            <PropertyRef Name="SenderId" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="SenderId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SenderType">
+          <Key>
+            <PropertyRef Name="SederTypeId" />
+          </Key>
+          <Property Name="SederTypeId" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="LetterManagementDBModelStoreContainer">
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Letter" EntityType="Self.Letter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LetterStatus" EntityType="Self.LetterStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipient" EntityType="Self.Recipient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SenderType" EntityType="Self.SenderType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Assignment" EntityType="Self.Assignment" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Assignment].[AssignmentId] AS [AssignmentId], 
+    [Assignment].[LetterId] AS [LetterId], 
+    [Assignment].[EmployeeId] AS [EmployeeId], 
+    [Assignment].[FeedBack] AS [FeedBack]
+    FROM [dbo].[Assignment] AS [Assignment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Branch" EntityType="Self.Branch" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Branch].[BranchId] AS [BranchId], 
+    [Branch].[Name] AS [Name]
+    FROM [dbo].[Branch] AS [Branch]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sender" EntityType="Self.Sender" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Sender].[SenderId] AS [SenderId], 
+    [Sender].[Name] AS [Name], 
+    [Sender].[Address] AS [Address]
+    FROM [dbo].[Sender] AS [Sender]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LetterManagementDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="DesignationId" />
+          </Key>
+          <Property Name="DesignationId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DepartmentId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BranchId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="ReferenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Assign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Letter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LetterFrom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LetterDate" Type="DateTime" Precision="3" />
+          <Property Name="ReceiveDate" Type="DateTime" Precision="3" />
+          <Property Name="BranchName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LetterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LetterStatu">
+          <Key>
+            <PropertyRef Name="LetterStatusId" />
+          </Key>
+          <Property Name="LetterStatusId" Type="Int32" Nullable="false" />
+          <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recipient">
+          <Key>
+            <PropertyRef Name="RecipientId" />
+          </Key>
+          <Property Name="RecipientId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SenderType">
+          <Key>
+            <PropertyRef Name="SederTypeId" />
+          </Key>
+          <Property Name="SederTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="AssignmentId" />
+            <PropertyRef Name="LetterId" />
+            <PropertyRef Name="EmployeeId" />
+            <PropertyRef Name="FeedBack" />
+          </Key>
+          <Property Name="AssignmentId" Type="Int32" Nullable="false" />
+          <Property Name="LetterId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="FeedBack" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="BranchId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sender">
+          <Key>
+            <PropertyRef Name="SenderId" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Address" />
+          </Key>
+          <Property Name="SenderId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="LetterManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Designations" EntityType="Self.Designation" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+          <EntitySet Name="Letters" EntityType="Self.Letter" />
+          <EntitySet Name="LetterStatus" EntityType="Self.LetterStatu" />
+          <EntitySet Name="Recipients" EntityType="Self.Recipient" />
+          <EntitySet Name="SenderTypes" EntityType="Self.SenderType" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Assignments" EntityType="Self.Assignment" />
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="Senders" EntityType="Self.Sender" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LetterManagementDBModelStoreContainer" CdmEntityContainer="LetterManagementEntities">
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Designations">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.Designation">
+              <MappingFragment StoreEntitySet="Designation">
+                <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="Responsible" ColumnName="Responsible" />
+                <ScalarProperty Name="Assign" ColumnName="Assign" />
+                <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Letters">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.Letter">
+              <MappingFragment StoreEntitySet="Letter">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LetterFrom" ColumnName="LetterFrom" />
+                <ScalarProperty Name="Responsible" ColumnName="Responsible" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="LetterDate" ColumnName="LetterDate" />
+                <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="LetterType" ColumnName="LetterType" />
+                <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
+                <ScalarProperty Name="ScannedImage" ColumnName="ScannedImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LetterStatus">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.LetterStatu">
+              <MappingFragment StoreEntitySet="LetterStatus">
+                <ScalarProperty Name="LetterStatusId" ColumnName="LetterStatusId" />
+                <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipients">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.Recipient">
+              <MappingFragment StoreEntitySet="Recipient">
+                <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SenderTypes">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.SenderType">
+              <MappingFragment StoreEntitySet="SenderType">
+                <ScalarProperty Name="SederTypeId" ColumnName="SederTypeId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assignments">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.Assignment">
+              <MappingFragment StoreEntitySet="Assignment">
+                <ScalarProperty Name="AssignmentId" ColumnName="AssignmentId" />
+                <ScalarProperty Name="LetterId" ColumnName="LetterId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="FeedBack" ColumnName="FeedBack" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Senders">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.Sender">
+              <MappingFragment StoreEntitySet="Sender">
+                <ScalarProperty Name="SenderId" ColumnName="SenderId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

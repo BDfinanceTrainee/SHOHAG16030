@@ -97,21 +97,9 @@
     <EntitySet Name="Assignments" EntityType="Self.Assignment" />
     <EntitySet Name="Branches" EntityType="Self.Branch" />
     <EntitySet Name="Senders" EntityType="Self.Sender" />
-    <EntitySet Name="Feedbacks" EntityType="LetterManagementDBModel.Feedback" />
     <EntitySet Name="Letters" EntityType="LetterManagementDBModel.Letter" />
+    <EntitySet Name="Feedbacks" EntityType="LetterManagementDBModel.Feedback" />
   </EntityContainer>
-  <EntityType Name="Feedback">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LetterId" Type="Int32" Nullable="false" />
-    <Property Name="ReferenceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Date" Type="DateTime" Precision="3" />
-    <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Assign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Comments" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-  </EntityType>
   <EntityType Name="Letter">
     <Key>
       <PropertyRef Name="Id" />
@@ -127,5 +115,17 @@
     <Property Name="LetterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LetterStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReferenceNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Responsible" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Assign" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

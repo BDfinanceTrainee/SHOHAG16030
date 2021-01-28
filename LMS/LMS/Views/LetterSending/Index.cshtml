@@ -19,9 +19,6 @@
 <body>
     <br />
     <div style="width:90%; margin:0 auto" class="tablecontainer">
-       @* <a class="popup btn btn-primary" href="/LetterSending/Commentpopup/0" style="margin-bottom:20px; margin-top:20px;">AssignAndFeedBack</a>*@
-        <a class="popup btn btn-primary" href="/LetterSending/AllFeedBack" style="margin-bottom:20px; margin-top:20px;">SeeAllComments</a>
-
         <table id="myDatatable">
             <thead>
                 <tr>
@@ -70,7 +67,7 @@
 
                     {
                         "data": "Id", "width": "50px", "render": function (data) {
-                            return '<a href="/LetterSending/AllFeedBack/' + data + '">SeeAllFeedBack</a>';
+                            return '<a class="popup" href="/LetterSending/AllFeedBack/' + data + '">SeeAllFeedBack</a>';
                         }
                     }
                 ]
@@ -95,8 +92,8 @@
                               autoOpen : false,
                               resizable : false,
                               model : true,
-                              title:'Popup Dialog',
-                              height : 400,
+                              title:'INFORMATION',
+                              height : 430,
                               width : 500,
                               close: function () {
                                   $dialog.dialog('destroy').remove();

@@ -61,7 +61,12 @@ namespace LMS.Controllers
         [HttpGet]
         public ActionResult Commentpopup(int id)
         {
-            return View();
+            using (LetterManagementDBEntities db = new LetterManagementDBEntities())
+            {
+                Letter letter = new Letter();
+                //letter = db.Letters.Where(x => x.Id == id);
+                return View();               
+            }
         }
         [HttpPost]
         public ActionResult Commentpopup(Feedback model)
@@ -73,8 +78,12 @@ namespace LMS.Controllers
                 {
                     Feedback feedback = new Feedback();
                     feedback.Date = DateTime.Today;
+                    feedback.LetterStatus = model.LetterStatus;
+                    feedback.ReferenceNo = model.ReferenceNo;
+                    feedback.Responsible = model.Responsible;
                     feedback.Assign = model.Assign;
                     feedback.Comments = model.Comments;
+                    
                     db.Feedbacks.Add(model);
                     db.SaveChanges();
                 }
@@ -89,25 +98,25 @@ namespace LMS.Controllers
         }
         [HttpGet]
         public ActionResult AllFeedBack(int id)
-          {
-            using (LetterManagementDBEntities dc = new LetterManagementDBEntities())
-            {
-                var data = dc.Letters
-                                 .Join(
-                                     dc.Feedbacks,
-                                     author => author.ReferenceNo,
-                                     book => book.ReferenceNo,
-                                     (author, book) => new
-                                     {
-                                         date = book.Date.ToString(),
-                                         referenceno = book.ReferenceNo,
-                                         responsible = book.Responsible,
-                                         comments = book.Comments                                        
+        {
+            //using (LetterManagementDBEntities dc = new LetterManagementDBEntities())
+            //{
+                //var data = dc.Letters
+                //                 .Join(
+                //                     dc.Feedbacks,
+                //                     author => author.ReferenceNo,
+                //                     book => book.ReferenceNo,
+                //                     (author, book) => new
+                //                     {
+                //                         date = book.Date.ToString(),
+                //                         referenceno = book.ReferenceNo,
+                //                         responsible = book.Responsible,
+                //                         comments = book.Comments                                        
                                          
-                                     }
-                                 ).ToList();
+                //                     }
+                //                 ).ToList();
 
-            }
+            //}
             return View();
 
         }        

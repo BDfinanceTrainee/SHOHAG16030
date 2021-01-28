@@ -234,11 +234,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LetterModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\LetterModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LetterModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Context\LetterModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -268,7 +263,9 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\FeedBackViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LetterViewModel.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -472,6 +469,7 @@
     <Content Include="template\dist\js\adminlte.js.map" />
     <Content Include="template\dist\js\adminlte.min.js.map" />
     <Content Include="Views\LetterSending\Feedbackpopup.cshtml" />
+    <Content Include="Views\LetterSending\AllFeedBack.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

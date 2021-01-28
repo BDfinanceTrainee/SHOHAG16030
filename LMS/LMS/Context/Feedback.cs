@@ -11,13 +11,15 @@ namespace LMS.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Feedback
     {
         public int Id { get; set; }
-        public int LetterId { get; set; }
+        [Display(Name = "Evening Showtime")]
+        public System.DateTime Date { get; set; }
+        public string LetterStatus { get; set; }
         public string ReferenceNo { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
         public string Responsible { get; set; }
         public string Assign { get; set; }
         public string Comments { get; set; }

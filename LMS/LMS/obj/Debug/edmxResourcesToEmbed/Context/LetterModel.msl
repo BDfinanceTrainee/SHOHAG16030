@@ -91,19 +91,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Feedbacks">
-      <EntityTypeMapping TypeName="LetterManagementDBModel.Feedback">
-        <MappingFragment StoreEntitySet="Feedback">
-          <ScalarProperty Name="Comments" ColumnName="Comments" />
-          <ScalarProperty Name="Assign" ColumnName="Assign" />
-          <ScalarProperty Name="Responsible" ColumnName="Responsible" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
-          <ScalarProperty Name="LetterId" ColumnName="LetterId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Letters">
       <EntityTypeMapping TypeName="LetterManagementDBModel.Letter">
         <MappingFragment StoreEntitySet="Letter">
@@ -117,6 +104,19 @@
           <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="Responsible" ColumnName="Responsible" />
           <ScalarProperty Name="LetterFrom" ColumnName="LetterFrom" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="LetterManagementDBModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Assign" ColumnName="Assign" />
+          <ScalarProperty Name="Responsible" ColumnName="Responsible" />
+          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+          <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

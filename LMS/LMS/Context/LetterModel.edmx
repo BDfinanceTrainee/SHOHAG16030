@@ -57,12 +57,12 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Branch' does not have a pri
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LetterId" Type="int" Nullable="false" />
-          <Property Name="ReferenceNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="Date" Type="datetime" />
-          <Property Name="Responsible" Type="nvarchar(max)" />
-          <Property Name="Assign" Type="nvarchar(max)" />
-          <Property Name="Comments" Type="nchar" MaxLength="10" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="LetterStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ReferenceNo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Responsible" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Assign" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Letter">
           <Key>
@@ -258,21 +258,9 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
           <EntitySet Name="Assignments" EntityType="Self.Assignment" />
           <EntitySet Name="Branches" EntityType="Self.Branch" />
           <EntitySet Name="Senders" EntityType="Self.Sender" />
-          <EntitySet Name="Feedbacks" EntityType="LetterManagementDBModel.Feedback" />
           <EntitySet Name="Letters" EntityType="LetterManagementDBModel.Letter" />
+          <EntitySet Name="Feedbacks" EntityType="LetterManagementDBModel.Feedback" />
         </EntityContainer>
-        <EntityType Name="Feedback">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LetterId" Type="Int32" Nullable="false" />
-          <Property Name="ReferenceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Date" Type="DateTime" Precision="3" />
-          <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Assign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Comments" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-        </EntityType>
         <EntityType Name="Letter">
           <Key>
             <PropertyRef Name="Id" />
@@ -288,6 +276,18 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
           <Property Name="LetterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LetterStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Responsible" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Assign" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -385,19 +385,6 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Feedbacks">
-            <EntityTypeMapping TypeName="LetterManagementDBModel.Feedback">
-              <MappingFragment StoreEntitySet="Feedback">
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="Assign" ColumnName="Assign" />
-                <ScalarProperty Name="Responsible" ColumnName="Responsible" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
-                <ScalarProperty Name="LetterId" ColumnName="LetterId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Letters">
             <EntityTypeMapping TypeName="LetterManagementDBModel.Letter">
               <MappingFragment StoreEntitySet="Letter">
@@ -411,6 +398,19 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="Responsible" ColumnName="Responsible" />
                 <ScalarProperty Name="LetterFrom" ColumnName="LetterFrom" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="LetterManagementDBModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Assign" ColumnName="Assign" />
+                <ScalarProperty Name="Responsible" ColumnName="Responsible" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
