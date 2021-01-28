@@ -31,8 +31,8 @@
                     <th>Letter Status</th>
                     @*<th>Letter Image</th>*@
                     <th>Assigned</th>
-                    <th><button>Reassign&&Feedback</button></th>
-                    <th><button>SeeAllFeedback</button></th>
+                    <th>Reassign&&Feedback</th>
+                    <th>SeeAllFeedback</th>
                 </tr>
             </thead>
         </table>
@@ -63,13 +63,13 @@
                     { "data": "Responsible", "autoWidth": true },
 
                     {
-                        "data": "ReferenceNo", "width": "50px", "render": function (data) {
+                        "data": "Id", "width": "50px", "render": function (data) {
                             return '<a class="popup" href="/LetterSending/Commentpopup/' + data + '">ReassignAndFeedBack</a>';
                         }
                     },
 
                     {
-                        "data": "ReferenceNo", "width": "50px", "render": function (data) {
+                        "data": "Id", "width": "50px", "render": function (data) {
                             return '<a href="/LetterSending/AllFeedBack/' + data + '">SeeAllFeedBack</a>';
                         }
                     }

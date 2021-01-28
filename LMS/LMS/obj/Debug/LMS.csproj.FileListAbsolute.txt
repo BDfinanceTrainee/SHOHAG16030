@@ -74,3 +74,4 @@ J:\SHOHAG16030\LMS\LMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 J:\SHOHAG16030\LMS\LMS\bin\System.Web.Http.Owin.xml
 J:\SHOHAG16030\LMS\LMS\obj\Debug\LMS.dll
 J:\SHOHAG16030\LMS\LMS\obj\Debug\LMS.pdb
+J:\SHOHAG16030\LMS\LMS\obj\Debug\LMS.csprojResolveAssemblyReference.cache

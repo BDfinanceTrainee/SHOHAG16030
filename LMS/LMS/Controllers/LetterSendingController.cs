@@ -59,7 +59,7 @@ namespace LMS.Controllers
 
         }
         [HttpGet]
-        public ActionResult Commentpopup()
+        public ActionResult Commentpopup(int id)
         {
             return View();
         }
@@ -88,7 +88,7 @@ namespace LMS.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult AllFeedBack(string referenceNo)
+        public ActionResult AllFeedBack(int id)
           {
             using (LetterManagementDBEntities dc = new LetterManagementDBEntities())
             {
