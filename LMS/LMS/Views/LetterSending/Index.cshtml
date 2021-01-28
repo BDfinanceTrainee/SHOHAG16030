@@ -22,14 +22,14 @@
         <table id="myDatatable">
             <thead>
                 <tr>
-                    <th>Letter From</th>
+                    <th>LetterFrom</th>
                     <th>Subject</th>
-                    <th>Receive Date</th>
-                    <th>Letter Status</th>
-                    @*<th>Letter Image</th>*@
+                    <th>ReceiveDate</th>
+                    <th>LetterStatus</th>
                     <th>Assigned</th>
-                    <th>Reassign&&Feedback</th>
-                    <th>SeeAllFeedback</th>
+                    <th>PreviewLetter</th>
+                    <th>ReassignFeedback</th>
+                    <th>AllFeedback</th>
                 </tr>
             </thead>
         </table>
@@ -56,9 +56,12 @@
                     { "data": "Subject", "autoWidth": true },
                     { "data": "ReceiveDate", "autoWidth": true },
                     { "data": "LetterStatus", "autoWidth": true },
-                    //{ "data": "LetterImage", "autoWidth": true },
                     { "data": "Responsible", "autoWidth": true },
-
+                    {
+                        "data": "Id", "width": "50px", "render": function (data) {
+                            return '<a class="popup" href="/LetterSending/LetterPreview/' + data + '">PreviewImage</a>';
+                        }
+                    },
                     {
                         "data": "Id", "width": "50px", "render": function (data) {
                             return '<a class="popup" href="/LetterSending/Commentpopup/' + data + '">ReassignAndFeedBack</a>';

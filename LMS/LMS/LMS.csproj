@@ -468,8 +468,8 @@
     <Content Include="template\dist\css\alt\adminlte.plugins.min.css.map" />
     <Content Include="template\dist\js\adminlte.js.map" />
     <Content Include="template\dist\js\adminlte.min.js.map" />
-    <Content Include="Views\LetterSending\Feedbackpopup.cshtml" />
     <Content Include="Views\LetterSending\AllFeedBack.cshtml" />
+    <Content Include="Views\LetterSending\LetterPreview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

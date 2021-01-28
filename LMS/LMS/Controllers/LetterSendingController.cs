@@ -91,11 +91,6 @@ namespace LMS.Controllers
             ModelState.Clear();
             return View();
         }
-        [HttpPost]
-        public ActionResult Feedbackpopup()
-        {
-            return View();
-        }
         [HttpGet]
         public ActionResult AllFeedBack(int id)
         {
@@ -119,7 +114,11 @@ namespace LMS.Controllers
             //}
             return View();
 
-        }        
+        }
+        public ActionResult LetterPreview()
+        {
+            return View();
+        }   
 
     }
 }
