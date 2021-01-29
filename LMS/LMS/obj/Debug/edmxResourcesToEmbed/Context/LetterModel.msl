@@ -111,12 +111,12 @@
     <EntitySetMapping Name="Feedbacks">
       <EntityTypeMapping TypeName="LetterManagementDBModel.Feedback">
         <MappingFragment StoreEntitySet="Feedback">
-          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
           <ScalarProperty Name="Assign" ColumnName="Assign" />
           <ScalarProperty Name="Responsible" ColumnName="Responsible" />
-          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
           <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
           <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="LetterId" ColumnName="LetterId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -234,6 +234,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LetterModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\LetterModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LetterModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\LetterModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

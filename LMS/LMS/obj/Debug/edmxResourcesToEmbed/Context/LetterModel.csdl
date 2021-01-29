@@ -99,6 +99,10 @@
     <EntitySet Name="Senders" EntityType="Self.Sender" />
     <EntitySet Name="Letters" EntityType="LetterManagementDBModel.Letter" />
     <EntitySet Name="Feedbacks" EntityType="LetterManagementDBModel.Feedback" />
+    <AssociationSet Name="FK_Feedback_Letter" Association="LetterManagementDBModel.FK_Feedback_Letter">
+      <End Role="Letter" EntitySet="Letters" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Letter">
     <Key>
@@ -115,17 +119,31 @@
     <Property Name="LetterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Feedbacks" Relationship="LetterManagementDBModel.FK_Feedback_Letter" FromRole="Letter" ToRole="Feedback" />
   </EntityType>
   <EntityType Name="Feedback">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="LetterStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ReferenceNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Responsible" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Assign" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Comments" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LetterId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Assign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Letter" Relationship="LetterManagementDBModel.FK_Feedback_Letter" FromRole="Feedback" ToRole="Letter" />
   </EntityType>
+  <Association Name="FK_Feedback_Letter">
+    <End Type="LetterManagementDBModel.Letter" Role="Letter" Multiplicity="1" />
+    <End Type="LetterManagementDBModel.Feedback" Role="Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Letter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="LetterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

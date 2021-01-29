@@ -21,13 +21,7 @@
                             @Html.ValidationMessageFor(a => a.LetterFrom)
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="colFormLabelSm" class="col-sm-3 col-form-label RecipientId">Assign</label>
-                        <div class="col-lg-8">
-                           @Html.TextBoxFor(a => a.Responsible, new { @class = "form-control", @placeholder = "Letter From" })
-                        @Html.ValidationMessageFor(a => a.Responsible)
-                        </div>
-                    </div>
+                    
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label Subject">Subject</label>
                         <div class="col-lg-8">
@@ -49,8 +43,6 @@
                             @Html.ValidationMessageFor(model => model.LetterDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 border-left p-2">
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label ReceiveDate">Receive Date</label>
                         <div class="col-lg-8">
@@ -58,13 +50,23 @@
                             @Html.ValidationMessageFor(model => model.ReceiveDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6 border-left p-2">
+                    
                     <div class="form-group row">
-                        <label for="colFormLabelSm" class="col-sm-3 col-form-label BranchId">Branch ID</label>
+                        <label for="colFormLabelSm" class="col-sm-3 col-form-label RecipientId">Assign</label>
                         <div class="col-lg-8">
-                            @Html.TextBoxFor(a => a.BranchName, new { @class = "form-control", @placeholder = "Branch ID" })
-                            @Html.ValidationMessageFor(a => a.BranchName)
+                            @Html.TextBoxFor(a => a.Responsible, new { @class = "form-control", @placeholder = "Letter From" })
+                            @Html.ValidationMessageFor(a => a.Responsible)
                         </div>
                     </div>
+                    @*<div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-3 col-form-label BranchId">Branch Name</label>
+                        <div class="col-lg-8">
+                            @Html.TextBoxFor(a => a.BranchName, new { @class = "form-control", @placeholder = "Branch Name" })
+                            @Html.ValidationMessageFor(a => a.BranchName)
+                        </div>
+                    </div>*@
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterType">Letter Type</label>
                         <div class="col-lg-8">

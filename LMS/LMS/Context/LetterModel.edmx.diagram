@@ -16,7 +16,8 @@
         <EntityTypeShape EntityType="LetterManagementDBModel.Branch" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Sender" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Letter" Width="1.5" PointX="0.75" PointY="10.625" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.Feedback" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.Feedback" Width="1.5" PointX="3" PointY="10.125" />
+        <AssociationConnector Association="LetterManagementDBModel.FK_Feedback_Letter" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

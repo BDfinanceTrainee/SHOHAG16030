@@ -8,18 +8,25 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-md-12 border-right p-2">
+                     <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-3 col-form-label ReceiveDate">Date</label>
+                        <div class="col-lg-8">
+                            @*@Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })*@
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label ReferenceNO">Ref.NO#</label>
                         <div class="col-lg-8">
-                            @Html.TextBoxFor(a => a.Responsible, new { @class = "form-control", @placeholder = "Ref.NO#" })
-                            @Html.ValidationMessageFor(a => a.Responsible)
+                            @*@Html.TextBoxFor(a => a.Responsible, new { @class = "form-control", @placeholder = "Ref.NO#" })
+                            @Html.ValidationMessageFor(a => a.Responsible)*@
                         </div>
                     </div>                  
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label ReferenceNO">Responsible</label>
                         <div class="col-lg-8">
-                            @Html.TextBoxFor(a => a.Responsible, new { @class = "form-control", @placeholder = "Responsible" })
-                            @Html.ValidationMessageFor(a => a.Responsible)
+                            @*@Html.TextBoxFor(a => a.Responsible, new { @class = "form-control", @placeholder = "Responsible" })
+                            @Html.ValidationMessageFor(a => a.Responsible)*@
                         </div>
                     </div>
                     <div class="form-group row">
@@ -34,13 +41,6 @@
                         <div class="col-lg-8">
                             @Html.TextBoxFor(a => a.Assign, new { @class = "form-control", @placeholder = "Assign someone" })
                             @Html.ValidationMessageFor(a => a.Assign)
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabelSm" class="col-sm-3 col-form-label ReceiveDate">Comment Date</label>
-                        <div class="col-lg-8">
-                            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group row">

@@ -11,22 +11,20 @@ namespace LMS.Context
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Web;
-
+    
     public partial class Letter
     {
         public int Id { get; set; }
         public string LetterFrom { get; set; }
         public string Responsible { get; set; }
         public string Subject { get; set; }
-        public string ReferenceNo { get; set; }       
-        public System.DateTime LetterDate { get; set; }      
-        public System.DateTime ReceiveDate { get; set; }
-        public HttpPostedFileBase ImageFile { get; set; }
+        public string ReferenceNo { get; set; }
+        public Nullable<System.DateTime> LetterDate { get; set; }
+        public Nullable<System.DateTime> ReceiveDate { get; set; }
         public string BranchName { get; set; }
         public string LetterType { get; set; }
         public string LetterStatus { get; set; }
-        public string ScannedImage { get; set; }
+        public string ScannedImage { get; set; }  
+        public  IList<Feedback> Feedbacks { get; set; }
     }
 }

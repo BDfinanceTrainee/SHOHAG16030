@@ -57,12 +57,12 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Branch' does not have a pri
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="LetterStatus" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ReferenceNo" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Responsible" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Assign" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Comments" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LetterId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="LetterStatus" Type="nvarchar(max)" />
+          <Property Name="Responsible" Type="nvarchar(max)" />
+          <Property Name="Assign" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Letter">
           <Key>
@@ -125,6 +125,18 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
           <Property Name="EmployeeId" Type="int" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Feedback_Letter">
+          <End Role="Letter" Type="Self.Letter" Multiplicity="1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Letter">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="LetterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="LetterManagementDBModelStoreContainer">
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
@@ -156,6 +168,10 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
     [Sender].[Address] AS [Address]
     FROM [dbo].[Sender] AS [Sender]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_Feedback_Letter" Association="Self.FK_Feedback_Letter">
+            <End Role="Letter" EntitySet="Letter" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -260,6 +276,10 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
           <EntitySet Name="Senders" EntityType="Self.Sender" />
           <EntitySet Name="Letters" EntityType="LetterManagementDBModel.Letter" />
           <EntitySet Name="Feedbacks" EntityType="LetterManagementDBModel.Feedback" />
+          <AssociationSet Name="FK_Feedback_Letter" Association="LetterManagementDBModel.FK_Feedback_Letter">
+            <End Role="Letter" EntitySet="Letters" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Letter">
           <Key>
@@ -276,19 +296,33 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
           <Property Name="LetterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Feedbacks" Relationship="LetterManagementDBModel.FK_Feedback_Letter" FromRole="Letter" ToRole="Feedback" />
         </EntityType>
         <EntityType Name="Feedback">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LetterStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ReferenceNo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Responsible" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Assign" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Comments" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LetterId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Assign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Letter" Relationship="LetterManagementDBModel.FK_Feedback_Letter" FromRole="Feedback" ToRole="Letter" />
         </EntityType>
+        <Association Name="FK_Feedback_Letter">
+          <End Type="LetterManagementDBModel.Letter" Role="Letter" Multiplicity="1" />
+          <End Type="LetterManagementDBModel.Feedback" Role="Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Letter">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="LetterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -405,12 +439,12 @@ warning 6002: The table/view 'LetterManagementDB.dbo.Sender' does not have a pri
           <EntitySetMapping Name="Feedbacks">
             <EntityTypeMapping TypeName="LetterManagementDBModel.Feedback">
               <MappingFragment StoreEntitySet="Feedback">
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Assign" ColumnName="Assign" />
                 <ScalarProperty Name="Responsible" ColumnName="Responsible" />
-                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
                 <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="LetterId" ColumnName="LetterId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
