@@ -67,11 +67,13 @@ namespace LMS.Controllers
         {           
             using (LetterManagementDBEntities dc = new LetterManagementDBEntities())
             {   
-                var IncomingLetters = dc.Letters.AsQueryable().Include(a => a.Feedbacks).OrderBy(a => a.LetterFrom).AsNoTracking().ToList();
+                //var IncomingLetters = dc.Letters.AsQueryable().Include(a => a.Feedbacks).OrderBy(a => a.LetterFrom).AsNoTracking().ToList();
+                var IncomingLetters = dc.Letters.ToList();
+
                 foreach (var item in IncomingLetters)
                 {
                     if (item.Feedbacks == null || item.Feedbacks.Count == 0) item.Feedbacks = new List<Feedback>();
-                    else item.Feedbacks = item.Feedbacks.ToList();
+                    //else item.Feedbacks = item.Feedbacks.ToList();
                 }
                 return Json(new { data = IncomingLetters }, JsonRequestBehavior.AllowGet);
 
@@ -97,19 +99,25 @@ namespace LMS.Controllers
                
                 using (LetterManagementDBEntities db = new LetterManagementDBEntities())
                 {
+                    Letter pastLtter = db.Letters.Where(x => x.Id == model.Id).FirstOrDefault();
                     Feedback feedback = new Feedback();
                     feedback.LetterStatus = model.LetterStatus;
                     feedback.Assign = model.Assign;
                     feedback.Comment = model.Comment;
-                    feedback.Responsible = "";
+                    feedback.Responsible =pastLtter.Responsible;
                     feedback.Date = DateTime.Now;
                     feedback.LetterId = model.Id;
-                   
-                    
+                                       
                     db.Feedbacks.Add(feedback);
                     db.SaveChanges();
                 }
-            }
+                using (LetterManagementDBEntities db = new LetterManagementDBEntities())
+                {
+                    Letter pastLtter = db.Letters.Where(x => x.Id == model.Id).FirstOrDefault();
+                    pastLtter.Responsible = model.Assign;
+                    db.SaveChanges();
+                }
+           }
             ModelState.Clear();
             return View();
         }
@@ -125,10 +133,10 @@ namespace LMS.Controllers
                                      fedback => fedback.LetterId,
                                      (letter, fedback) => new
                                      {
-                                         //referenceno = letter.da,
-                                         //responsible = fedback.Responsible,
-                                         //comments = fedback.Comments                                        
-                                         
+                                         referenceno = letter.ReferenceNo,
+                                         responsible = fedback.Responsible,
+                                         comment = fedback.Comment
+
                                      }
                                  ).ToList();
 
