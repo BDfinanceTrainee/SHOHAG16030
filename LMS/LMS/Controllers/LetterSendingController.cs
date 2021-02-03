@@ -60,7 +60,7 @@ namespace LMS.Controllers
                 }
             }
             ModelState.Clear();
-             return View();           
+             return View("Index");           
         }
         [HttpGet]
         public ActionResult ViewAllIncomingLetter()
@@ -83,12 +83,15 @@ namespace LMS.Controllers
         [HttpGet]
         public ActionResult Commentpopup(int id)
         {
+            Letter letter = new Letter();
             using (LetterManagementDBEntities db = new LetterManagementDBEntities())
-            {
-                Letter letter = new Letter();
-                //letter = db.Letters.Where(x => x.Id == id);
-                return View();               
+            {               
+                letter = db.Letters.Where(x => x.Id == id).FirstOrDefault();
+                          
             }
+            ViewBag.ReferenceNo = letter.ReferenceNo;
+            ViewBag.Responsible = letter.Responsible;
+            return View();
 
         }
         [HttpPost]
@@ -130,21 +133,21 @@ namespace LMS.Controllers
                 List<Feedback> feedback = new List<Feedback>();               
                 feedback = dc.Feedbacks.Where(x=>x.LetterId == id).ToList();
                 ViewBag.FeedbackList = feedback;
-                //foreach (var item in feedback)
-                //{
-                //    listFeedBackList.Assign = item.Assign;
-                //    listFeedBackList.Comments = item.Comment;
-                //    //listFeedBackList.Assign = item.Assign;
-                //    //listFeedBackList.Assign = item.Assign;
-                //}
             }
             
             return View();
            
         }
-        public ActionResult LetterPreview()
+        public ActionResult LetterPreview(int id)
         {
-            return View();
+            var LetterImage = new Letter();
+            using (LetterManagementDBEntities db = new LetterManagementDBEntities())
+            {
+                LetterImage = db.Letters.Where(x => x.Id == id).FirstOrDefault();
+               
+            }
+
+            return View(LetterImage);
         }   
 
     }
