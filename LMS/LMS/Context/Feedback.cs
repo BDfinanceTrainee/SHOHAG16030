@@ -21,7 +21,5 @@ namespace LMS.Context
         public string Responsible { get; set; }
         public string Assign { get; set; }
         public string Comment { get; set; }
-    
-        public virtual Letter Letter { get; set; }
     }
 }

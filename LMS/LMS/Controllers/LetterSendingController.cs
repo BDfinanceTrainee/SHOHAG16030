@@ -70,11 +70,11 @@ namespace LMS.Controllers
                 //var IncomingLetters = dc.Letters.AsQueryable().Include(a => a.Feedbacks).OrderBy(a => a.LetterFrom).AsNoTracking().ToList();
                 var IncomingLetters = dc.Letters.ToList();
 
-                foreach (var item in IncomingLetters)
-                {
-                    if (item.Feedbacks == null || item.Feedbacks.Count == 0) item.Feedbacks = new List<Feedback>();
-                    //else item.Feedbacks = item.Feedbacks.ToList();
-                }
+                //foreach (var item in IncomingLetters)
+                //{
+                //    if (item.Feedbacks == null || item.Feedbacks.Count == 0) item.Feedbacks = new List<Feedback>();
+                //    //else item.Feedbacks = item.Feedbacks.ToList();
+                //}
                 return Json(new { data = IncomingLetters }, JsonRequestBehavior.AllowGet);
 
             }
@@ -124,25 +124,23 @@ namespace LMS.Controllers
         [HttpGet]
         public ActionResult AllFeedBack(int id)
         {
+            var listFeedBackList = new FeedBackViewModel();
             using (LetterManagementDBEntities dc = new LetterManagementDBEntities())
             {
-                var data = dc.Letters
-                                 .Join(
-                                     dc.Feedbacks,
-                                     letter => letter.Id,
-                                     fedback => fedback.LetterId,
-                                     (letter, fedback) => new
-                                     {
-                                         referenceno = letter.ReferenceNo,
-                                         responsible = fedback.Responsible,
-                                         comment = fedback.Comment
-
-                                     }
-                                 ).ToList();
-
+                List<Feedback> feedback = new List<Feedback>();               
+                feedback = dc.Feedbacks.Where(x=>x.LetterId == id).ToList();
+                ViewBag.FeedbackList = feedback;
+                //foreach (var item in feedback)
+                //{
+                //    listFeedBackList.Assign = item.Assign;
+                //    listFeedBackList.Comments = item.Comment;
+                //    //listFeedBackList.Assign = item.Assign;
+                //    //listFeedBackList.Assign = item.Assign;
+                //}
             }
+            
             return View();
-
+           
         }
         public ActionResult LetterPreview()
         {

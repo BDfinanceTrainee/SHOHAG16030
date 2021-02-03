@@ -1,51 +1,25 @@
-﻿@model LMS.Context.Feedback
-    <table class="table">
-        <thead>
+﻿@model  LMS.Models.FeedBackViewModel
+@{ 
+    var feedlist = ViewBag.FeedbackList;
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">DateOfComment</th>  
+            <th scope="col">Responsible</th>                       
+            <th scope="col">FeedBack</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in feedlist)
+        {
             <tr>
-                <th scope="col">DateOfComment</th>  
-                <th scope="col">Responsible</th>
-                <th scope="col">LetterRefNo</th>                            
-                <th scope="col">FeedBack</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>12/12/2021</td>
-                <td>MD</td>
-                <td>BB1223</td>                
-                <td>Take proper action Take proper action Take proper action Take proper action Take proper action</td>
-            </tr>
-            <tr>
-                <td>12/12/2021</td>
-                <td>MD</td>
-                <td>BB1223</td>                
-                <td>Take proper action Take proper action Take proper action Take proper action Take proper action</td>
-            </tr>
-            <tr>
-                <td>12/12/2021</td>
-                <td>MD</td>
-                <td>BB1223</td>               
-                <td>Take proper action Take proper action Take proper action Take proper action Take proper action</td>
-            </tr>
-            <tr>
-                <td>MD</td>
-                <td>BB1223</td>
-                <td>12/12/2021</td>
-                <td>Take proper action Take proper action Take proper action Take proper action Take proper action</td>
-            </tr>
-            <tr>
-                <td>12/12/2021</td>
-                <td>MD</td>
-                <td>BB1223</td>
-                <td>Take proper action Take proper action Take proper action Take proper action Take proper action</td>
-            </tr>
-            <tr>
-                <td>12/12/2021</td>
-                <td>MD</td>
-                <td>BB1223</td>
-                <td>Take proper action Take proper action Take proper action Take proper action Take proper action</td>
-            </tr>
-        </tbody>
-    </table>
+                <td>@item.Date</td>
+                <td>@item.Responsible</td>
+                <td>@item.Comment</td>
+            </tr>            
+        }
+    </tbody>
+</table>
 
   

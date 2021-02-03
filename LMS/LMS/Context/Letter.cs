@@ -24,7 +24,6 @@ namespace LMS.Context
         public string BranchName { get; set; }
         public string LetterType { get; set; }
         public string LetterStatus { get; set; }
-        public string ScannedImage { get; set; }  
-        public  IList<Feedback> Feedbacks { get; set; }
+        public string ScannedImage { get; set; }
     }
 }

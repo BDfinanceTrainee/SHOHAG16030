@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="LetterManagementDBModelStoreContainer" CdmEntityContainer="LetterManagementDBEntities">
-    <EntitySetMapping Name="Departments">
-      <EntityTypeMapping TypeName="LetterManagementDBModel.Department">
-        <MappingFragment StoreEntitySet="Department">
-          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Designations">
       <EntityTypeMapping TypeName="LetterManagementDBModel.Designation">
         <MappingFragment StoreEntitySet="Designation">
@@ -24,15 +16,6 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
           <ScalarProperty Name="BranchId" ColumnName="BranchId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Recipients">
-      <EntityTypeMapping TypeName="LetterManagementDBModel.Recipient">
-        <MappingFragment StoreEntitySet="Recipient">
-          <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -52,42 +35,6 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="LetterManagementDBModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Assignments">
-      <EntityTypeMapping TypeName="LetterManagementDBModel.Assignment">
-        <MappingFragment StoreEntitySet="Assignment">
-          <ScalarProperty Name="AssignmentId" ColumnName="AssignmentId" />
-          <ScalarProperty Name="LetterId" ColumnName="LetterId" />
-          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-          <ScalarProperty Name="FeedBack" ColumnName="FeedBack" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Branches">
-      <EntityTypeMapping TypeName="LetterManagementDBModel.Branch">
-        <MappingFragment StoreEntitySet="Branch">
-          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Senders">
-      <EntityTypeMapping TypeName="LetterManagementDBModel.Sender">
-        <MappingFragment StoreEntitySet="Sender">
-          <ScalarProperty Name="SenderId" ColumnName="SenderId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

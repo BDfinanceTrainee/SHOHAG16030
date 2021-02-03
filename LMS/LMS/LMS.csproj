@@ -208,15 +208,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Context\Assignment.cs">
-      <DependentUpon>LetterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\Branch.cs">
-      <DependentUpon>LetterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\Department.cs">
-      <DependentUpon>LetterModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Context\Designation.cs">
       <DependentUpon>LetterModel.tt</DependentUpon>
     </Compile>
@@ -244,19 +235,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LetterModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Context\Recipient.cs">
-      <DependentUpon>LetterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\Sender.cs">
-      <DependentUpon>LetterModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Context\SenderType.cs">
       <DependentUpon>LetterModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\sysdiagram.cs">
-      <DependentUpon>LetterModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\User.cs">
       <DependentUpon>LetterModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />

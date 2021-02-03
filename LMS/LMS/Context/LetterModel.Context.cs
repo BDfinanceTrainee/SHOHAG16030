@@ -25,16 +25,10 @@ namespace LMS.Context
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Designation> Designations { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<Recipient> Recipients { get; set; }
         public virtual DbSet<SenderType> SenderTypes { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Assignment> Assignments { get; set; }
-        public virtual DbSet<Branch> Branches { get; set; }
-        public virtual DbSet<Sender> Senders { get; set; }
         public virtual DbSet<Letter> Letters { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
     }

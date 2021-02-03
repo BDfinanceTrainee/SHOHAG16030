@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="LetterManagementDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Department">
-    <Key>
-      <PropertyRef Name="DepartmentId" />
-    </Key>
-    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
   <EntityType Name="Designation">
     <Key>
       <PropertyRef Name="DesignationId" />
@@ -22,14 +15,6 @@
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DepartmentId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="BranchId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Recipient">
-    <Key>
-      <PropertyRef Name="RecipientId" />
-    </Key>
-    <Property Name="RecipientId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="SenderType">
     <Key>
@@ -48,61 +33,13 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="UserId" Type="Int32" Nullable="false" />
-    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Assignment">
-    <Key>
-      <PropertyRef Name="AssignmentId" />
-      <PropertyRef Name="LetterId" />
-      <PropertyRef Name="EmployeeId" />
-      <PropertyRef Name="FeedBack" />
-    </Key>
-    <Property Name="AssignmentId" Type="Int32" Nullable="false" />
-    <Property Name="LetterId" Type="Int32" Nullable="false" />
-    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-    <Property Name="FeedBack" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Branch">
-    <Key>
-      <PropertyRef Name="BranchId" />
-      <PropertyRef Name="Name" />
-    </Key>
-    <Property Name="BranchId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Sender">
-    <Key>
-      <PropertyRef Name="SenderId" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Address" />
-    </Key>
-    <Property Name="SenderId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
   <EntityContainer Name="LetterManagementDBEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Departments" EntityType="Self.Department" />
     <EntitySet Name="Designations" EntityType="Self.Designation" />
     <EntitySet Name="Employees" EntityType="Self.Employee" />
-    <EntitySet Name="Recipients" EntityType="Self.Recipient" />
     <EntitySet Name="SenderTypes" EntityType="Self.SenderType" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="Assignments" EntityType="Self.Assignment" />
-    <EntitySet Name="Branches" EntityType="Self.Branch" />
-    <EntitySet Name="Senders" EntityType="Self.Sender" />
     <EntitySet Name="Letters" EntityType="LetterManagementDBModel.Letter" />
     <EntitySet Name="Feedbacks" EntityType="LetterManagementDBModel.Feedback" />
-    <AssociationSet Name="FK_Feedback_Letter" Association="LetterManagementDBModel.FK_Feedback_Letter">
-      <End Role="Letter" EntitySet="Letters" />
-      <End Role="Feedback" EntitySet="Feedbacks" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Letter">
     <Key>
@@ -119,7 +56,6 @@
     <Property Name="LetterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Feedbacks" Relationship="LetterManagementDBModel.FK_Feedback_Letter" FromRole="Letter" ToRole="Feedback" />
   </EntityType>
   <EntityType Name="Feedback">
     <Key>
@@ -132,18 +68,5 @@
     <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Assign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Letter" Relationship="LetterManagementDBModel.FK_Feedback_Letter" FromRole="Feedback" ToRole="Letter" />
   </EntityType>
-  <Association Name="FK_Feedback_Letter">
-    <End Type="LetterManagementDBModel.Letter" Role="Letter" Multiplicity="1" />
-    <End Type="LetterManagementDBModel.Feedback" Role="Feedback" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Letter">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Feedback">
-        <PropertyRef Name="LetterId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

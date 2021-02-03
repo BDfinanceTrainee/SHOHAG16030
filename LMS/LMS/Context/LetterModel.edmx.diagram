@@ -5,19 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="65117790cd2f410fa5faf7064ba7befe" Name="Diagram1">
-        <EntityTypeShape EntityType="LetterManagementDBModel.Department" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Designation" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Employee" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.Recipient" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.SenderType" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.sysdiagram" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.User" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.Assignment" Width="1.5" PointX="4.625" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.Branch" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.Sender" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Letter" Width="1.5" PointX="0.75" PointY="10.625" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Feedback" Width="1.5" PointX="3" PointY="10.125" />
-        <AssociationConnector Association="LetterManagementDBModel.FK_Feedback_Letter" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
