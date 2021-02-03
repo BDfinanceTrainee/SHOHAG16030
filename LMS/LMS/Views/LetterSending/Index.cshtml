@@ -59,7 +59,7 @@
                     { "data": "Responsible", "autoWidth": true },
                     {
                         "data": "Id", "width": "50px", "render": function (data) {
-                            return '<a class="btn btn-primary" href="/LetterSending/LetterPreview/' + data + '">Click</a>';
+                            return '<a class="popup btn btn-primary" href="/LetterSending/LetterPreview/' + data + '">Click</a>';
                         }
                     },
                     {
@@ -96,7 +96,7 @@
                               resizable : false,
                               model : true,
                               title:'INFORMATION',
-                              height : 430,
+                              height : 500,
                               width : 500,
                               close: function () {
                                   $dialog.dialog('destroy').remove();
