@@ -54,7 +54,15 @@
                 "columns": [
                     { "data": "LetterFrom", "autoWidth": true },
                     { "data": "Subject", "autoWidth": true },
-                    { "data": "ReceiveDate", "autoWidth": true },
+                    //{ "data": "ReceiveDate", "autoWidth": true },
+                     {
+                         'data': 'ReceiveDate',
+                         'render': function (jsonDate) {
+                             var date = new Date(parseInt(jsonDate.substr(6)));
+                             var month = ("0" + (date.getMonth() + 1)).slice(-2);
+                             return ("0" + date.getDate()).slice(-2) + '-' + month + '-' + date.getFullYear();
+                         }
+                     },
                     { "data": "LetterStatus", "autoWidth": true },
                     { "data": "Responsible", "autoWidth": true },
                     {

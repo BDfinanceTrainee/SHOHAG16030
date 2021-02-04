@@ -122,7 +122,7 @@ namespace LMS.Controllers
                 }
            }
             ModelState.Clear();
-            return View();
+            return View("Index");
         }
         [HttpGet]
         public ActionResult AllFeedBack(int id)
