@@ -55,7 +55,7 @@
                     { "data": "LetterFrom", "autoWidth": true },
                     { "data": "Subject", "autoWidth": true },
                     //{ "data": "ReceiveDate", "autoWidth": true },
-                     {
+                     {  
                          'data': 'ReceiveDate',
                          'render': function (jsonDate) {
                              var date = new Date(parseInt(jsonDate.substr(6)));
@@ -67,7 +67,7 @@
                     { "data": "Responsible", "autoWidth": true },
                     {
                         "data": "Id", "width": "50px", "render": function (data) {
-                            return '<a class="popup btn btn-primary" href="/LetterSending/LetterPreview/' + data + '">Click</a>';
+                            return '<a class="popup btn btn-info" href="/LetterSending/LetterPreview/' + data + '">Click</a>';
                         }
                     },
                     {
@@ -78,7 +78,7 @@
 
                     {
                         "data": "Id", "width": "50px", "render": function (data) {
-                            return '<a class="popup btn btn-primary" href="/LetterSending/AllFeedBack/' + data + '">Click</a>';
+                            return '<a class="popup btn btn-success" href="/LetterSending/AllFeedBack/' + data + '">Click</a>';
                         }
                     }
                 ]

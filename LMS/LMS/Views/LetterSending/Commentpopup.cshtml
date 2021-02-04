@@ -23,14 +23,19 @@
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label ReferenceNO">LetterStatus</label>
                         <div class="col-lg-8">
-                            @Html.TextBoxFor(a => a.LetterStatus, new { @class = "form-control", @placeholder = "LetterStatus" })
-                            @Html.ValidationMessageFor(a => a.LetterStatus)
+                           @Html.DropDownListFor(x => x.LetterStatus, new List<SelectListItem>
+                           {
+                            new SelectListItem() {Text = "--Select Status--", Value="--Select Status--"},
+                            new SelectListItem() {Text = "InProcess", Value="InProcess"},
+                            new SelectListItem() {Text = "Closed", Value="Closed"}
+                          })
+                            
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label BranchId">Assign</label>
                         <div class="col-lg-8">
-                            @Html.TextBoxFor(a => a.Assign, new { @class = "form-control", @placeholder = "Assign someone" })
+                            @Html.DropDownList("Designation", ViewBag.Designations as SelectList, "--Select a Person--")
                             @Html.ValidationMessageFor(a => a.Assign)
                         </div>
                     </div>
@@ -44,15 +49,15 @@
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterType">FeedBack</label>
                         <div class="col-lg-8">
-                            @Html.TextAreaFor(a => a.Comments, new { @class = "form-control", @placeholder = "Write a comment" })
-                            @Html.ValidationMessageFor(a => a.Comments)
+                            @Html.TextAreaFor(a => a.Comment, new { @class = "form-control", @placeholder = "Write a comment" })
+                            @Html.ValidationMessageFor(a => a.Comment)
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-md btn-block">Submit</button>
 
                 </div>
             </div>
-        </fieldset>
+        </fieldset>  
     </div>
 }
 

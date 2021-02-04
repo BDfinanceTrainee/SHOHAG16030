@@ -22,9 +22,11 @@ namespace LMS.Controllers
         [HttpGet]
         public ActionResult IncomingLetter()
         {
+            LetterViewModel letterviewmodel = new LetterViewModel();
             using (LetterManagementDBEntities db = new LetterManagementDBEntities())
             {
-                ViewBag.Employees = db.Employees.ToList();             
+                ViewBag.designationCollection = db.Designations.ToList();
+                ViewBag.Designations = new SelectList(db.Designations.ToList(), "DesignationId", "Name");
                 return View();
             }
         }
@@ -87,7 +89,8 @@ namespace LMS.Controllers
             using (LetterManagementDBEntities db = new LetterManagementDBEntities())
             {               
                 letter = db.Letters.Where(x => x.Id == id).FirstOrDefault();
-                          
+                ViewBag.designationCollection = db.Designations.ToList();
+                ViewBag.Designations = new SelectList(db.Designations.ToList(), "DesignationId", "Name");
             }
             ViewBag.ReferenceNo = letter.ReferenceNo;
             ViewBag.Responsible = letter.Responsible;
@@ -105,18 +108,13 @@ namespace LMS.Controllers
                     Letter pastLtter = db.Letters.Where(x => x.Id == model.Id).FirstOrDefault();
                     Feedback feedback = new Feedback();
                     feedback.LetterStatus = model.LetterStatus;
-                    feedback.Assign = model.Assign;
+                    feedback.Assign = pastLtter.Responsible;
                     feedback.Comment = model.Comment;
                     feedback.Responsible =pastLtter.Responsible;
                     feedback.Date = DateTime.Now;
-                    feedback.LetterId = model.Id;
-                                       
+                    feedback.LetterId = model.Id;                                       
                     db.Feedbacks.Add(feedback);
-                    db.SaveChanges();
-                }
-                using (LetterManagementDBEntities db = new LetterManagementDBEntities())
-                {
-                    Letter pastLtter = db.Letters.Where(x => x.Id == model.Id).FirstOrDefault();
+
                     pastLtter.Responsible = model.Assign;
                     db.SaveChanges();
                 }

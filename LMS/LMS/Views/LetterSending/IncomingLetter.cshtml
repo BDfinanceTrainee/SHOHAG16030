@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_masterlayout.cshtml";
 }
 
-
 <link href="~/Content/form.css" rel="stylesheet" />
 @using (Html.BeginForm("IncomingLetter", "LetterSending", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -56,8 +55,8 @@
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label RecipientId">Assign</label>
                         <div class="col-lg-8">
-                            @Html.TextBoxFor(a => a.Responsible, new { @class = "form-control", @placeholder = "Letter From" })
-                            @Html.ValidationMessageFor(a => a.Responsible)
+                           @Html.DropDownList("Designation", ViewBag.Designations as SelectList,"--Select a Person--")
+                           @Html.ValidationMessageFor(a => a.Responsible)
                         </div>
                     </div>
                     @*<div class="form-group row">
@@ -77,8 +76,12 @@
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterStatusId">Letter Status</label>
                         <div class="col-lg-8">
-                            @Html.TextBoxFor(a => a.LetterStatus, new { @class = "form-control", @placeholder = "Letter Status" })
-                            @Html.ValidationMessageFor(a => a.LetterStatus)
+                            @Html.DropDownListFor(x => x.LetterStatus, new List<SelectListItem>
+                           {
+                            new SelectListItem() {Text = "--Select Status--", Value="--Select Status--"},
+                            new SelectListItem() {Text = "InProcess", Value="InProcess"},
+                            new SelectListItem() {Text = "Closed", Value="Closed"}
+                          })  
                         </div>
                     </div>
                     <div class="form-group">

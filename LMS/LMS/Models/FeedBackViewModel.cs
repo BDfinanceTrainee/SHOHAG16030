@@ -15,6 +15,11 @@ namespace LMS.Models
         public string ReferenceNo { get; set; }
         public string Responsible { get; set; }
         public string Assign { get; set; }
-        public string Comments { get; set; }
+        public string Comment { get; set; }
     }
+    //public enum LetterStatus
+    //{
+    //    InProcess,
+    //    Closed
+    //}
 }
