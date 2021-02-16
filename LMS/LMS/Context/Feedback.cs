@@ -17,9 +17,14 @@ namespace LMS.Context
         public int Id { get; set; }
         public int LetterId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public string LetterStatus { get; set; }
+        public string StatusOfLetter { get; set; }
         public string Responsible { get; set; }
         public string Assign { get; set; }
         public string Comment { get; set; }
+        public Nullable<int> DesignationId { get; set; }
+        public Nullable<int> LetterStatusId { get; set; }
+    
+        public virtual Designation Designation { get; set; }
+        public virtual LetterStatu LetterStatu { get; set; }
     }
 }

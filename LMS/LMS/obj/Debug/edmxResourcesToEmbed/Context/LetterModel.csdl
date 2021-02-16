@@ -7,6 +7,7 @@
     <Property Name="DesignationId" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Letters" Relationship="LetterManagementDBModel.FK_Letter_Designation" FromRole="Designation" ToRole="Letter" />
+    <NavigationProperty Name="Feedbacks" Relationship="LetterManagementDBModel.FK_Feedback_Designation" FromRole="Designation" ToRole="Feedback" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
@@ -39,7 +40,6 @@
     <EntitySet Name="Employees" EntityType="Self.Employee" />
     <EntitySet Name="SenderTypes" EntityType="Self.SenderType" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="Feedbacks" EntityType="LetterManagementDBModel.Feedback" />
     <EntitySet Name="LetterStatus" EntityType="LetterManagementDBModel.LetterStatu" />
     <EntitySet Name="LetterTypes" EntityType="LetterManagementDBModel.LetterType" />
     <EntitySet Name="LetterFroms" EntityType="LetterManagementDBModel.LetterFrom" />
@@ -60,19 +60,16 @@
       <End Role="LetterType" EntitySet="LetterTypes" />
       <End Role="Letter" EntitySet="Letters" />
     </AssociationSet>
+    <EntitySet Name="Feedbacks" EntityType="LetterManagementDBModel.Feedback" />
+    <AssociationSet Name="FK_Feedback_Designation" Association="LetterManagementDBModel.FK_Feedback_Designation">
+      <End Role="Designation" EntitySet="Designations" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Feedback_LetterStatus" Association="LetterManagementDBModel.FK_Feedback_LetterStatus">
+      <End Role="LetterStatu" EntitySet="LetterStatus" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Feedback">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LetterId" Type="Int32" Nullable="false" />
-    <Property Name="Date" Type="DateTime" Precision="3" />
-    <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Assign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="LetterStatu">
     <Key>
       <PropertyRef Name="LetterStatusId" />
@@ -80,6 +77,7 @@
     <Property Name="LetterStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Letters" Relationship="LetterManagementDBModel.FK_Letter_LetterStatus" FromRole="LetterStatu" ToRole="Letter" />
+    <NavigationProperty Name="Feedbacks" Relationship="LetterManagementDBModel.FK_Feedback_LetterStatus" FromRole="LetterStatu" ToRole="Feedback" />
   </EntityType>
   <EntityType Name="LetterType">
     <Key>
@@ -165,6 +163,46 @@
       </Principal>
       <Dependent Role="Letter">
         <PropertyRef Name="LetterTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LetterId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="StatusOfLetter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Assign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationId" Type="Int32" />
+    <Property Name="LetterStatusId" Type="Int32" />
+    <NavigationProperty Name="Designation" Relationship="LetterManagementDBModel.FK_Feedback_Designation" FromRole="Feedback" ToRole="Designation" />
+    <NavigationProperty Name="LetterStatu" Relationship="LetterManagementDBModel.FK_Feedback_LetterStatus" FromRole="Feedback" ToRole="LetterStatu" />
+  </EntityType>
+  <Association Name="FK_Feedback_Designation">
+    <End Type="LetterManagementDBModel.Designation" Role="Designation" Multiplicity="0..1" />
+    <End Type="LetterManagementDBModel.Feedback" Role="Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designation">
+        <PropertyRef Name="DesignationId" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="DesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Feedback_LetterStatus">
+    <End Type="LetterManagementDBModel.LetterStatu" Role="LetterStatu" Multiplicity="0..1" />
+    <End Type="LetterManagementDBModel.Feedback" Role="Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LetterStatu">
+        <PropertyRef Name="LetterStatusId" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="LetterStatusId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

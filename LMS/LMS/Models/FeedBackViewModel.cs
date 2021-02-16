@@ -11,15 +11,10 @@ namespace LMS.Models
         public int Id { get; set; }
         [DataType(DataType.Date)]
         public System.DateTime Date { get; set; }
-        public string LetterStatus { get; set; }
+        public string StatusOfLetter { get; set; }
         public string ReferenceNo { get; set; }
         public string Responsible { get; set; }
         public string Assign { get; set; }
         public string Comment { get; set; }
     }
-    //public enum LetterStatus
-    //{
-    //    InProcess,
-    //    Closed
-    //}
 }

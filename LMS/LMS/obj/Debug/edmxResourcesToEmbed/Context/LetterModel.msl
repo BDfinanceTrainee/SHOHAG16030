@@ -38,19 +38,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Feedbacks">
-      <EntityTypeMapping TypeName="LetterManagementDBModel.Feedback">
-        <MappingFragment StoreEntitySet="Feedback">
-          <ScalarProperty Name="Comment" ColumnName="Comment" />
-          <ScalarProperty Name="Assign" ColumnName="Assign" />
-          <ScalarProperty Name="Responsible" ColumnName="Responsible" />
-          <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="LetterId" ColumnName="LetterId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="LetterStatus">
       <EntityTypeMapping TypeName="LetterManagementDBModel.LetterStatu">
         <MappingFragment StoreEntitySet="LetterStatus">
@@ -91,6 +78,21 @@
           <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="Responsible" ColumnName="Responsible" />
           <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="LetterManagementDBModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="LetterStatusId" ColumnName="LetterStatusId" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Assign" ColumnName="Assign" />
+          <ScalarProperty Name="Responsible" ColumnName="Responsible" />
+          <ScalarProperty Name="StatusOfLetter" ColumnName="StatusOfLetter" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="LetterId" ColumnName="LetterId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

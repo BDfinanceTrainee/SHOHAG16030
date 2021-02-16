@@ -5,20 +5,22 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="65117790cd2f410fa5faf7064ba7befe" Name="Diagram1">
-        <EntityTypeShape EntityType="LetterManagementDBModel.Designation" Width="1.5" PointX="4.375" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.Designation" Width="1.5" PointX="12" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Employee" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.SenderType" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.sysdiagram" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.Feedback" Width="1.5" PointX="6.625" PointY="10.25" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.LetterStatu" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.LetterType" Width="1.5" PointX="3.375" PointY="0.875" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.LetterFrom" Width="1.5" PointX="5.375" PointY="0.875" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.Letter" Width="1.5" PointX="9.625" PointY="1" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.SenderType" Width="1.5" PointX="0.875" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.LetterStatu" Width="1.5" PointX="7.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.LetterType" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.LetterFrom" Width="1.5" PointX="7.625" PointY="2.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.Letter" Width="1.5" PointX="9.625" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="LetterManagementDBModel.FK_Letter_Designation" />
         <AssociationConnector Association="LetterManagementDBModel.FK_Letter_LetterFrom" />
         <AssociationConnector Association="LetterManagementDBModel.FK_Letter_LetterStatus" />
         <AssociationConnector Association="LetterManagementDBModel.FK_Letter_LetterType" />
-      </Diagram>
+        <EntityTypeShape EntityType="LetterManagementDBModel.Feedback" Width="1.5" PointX="9.625" PointY="5.75" />
+        <AssociationConnector Association="LetterManagementDBModel.FK_Feedback_Designation" />
+        <AssociationConnector Association="LetterManagementDBModel.FK_Feedback_LetterStatus" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

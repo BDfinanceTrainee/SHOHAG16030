@@ -18,6 +18,7 @@ namespace LMS.Context
         public Designation()
         {
             this.Letters = new HashSet<Letter>();
+            this.Feedbacks = new HashSet<Feedback>();
         }
     
         public int DesignationId { get; set; }
@@ -25,5 +26,7 @@ namespace LMS.Context
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Letter> Letters { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
     }
 }

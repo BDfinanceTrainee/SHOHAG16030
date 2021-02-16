@@ -15,12 +15,8 @@ namespace LMS.Models
         public string Subject { get; set; }
         public string ReferenceNo { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Evening Showtime")]
         public System.DateTime LetterDate { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:hh:mm tt}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Evening Showtime")]
         public System.DateTime ReceiveDate { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
         public string Type { get; set; }

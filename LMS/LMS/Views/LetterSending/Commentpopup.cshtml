@@ -1,4 +1,4 @@
-﻿@model LMS.Models.FeedBackViewModel
+﻿@model LMS.Context.Feedback
 
 @using (Html.BeginForm("Commentpopup", "LetterSending", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -8,6 +8,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-md-12 border-right p-2">
+                    <div class="form-group row">
+                        <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterDate">Date</label>
+                        <div class="col-lg-8">
+                            @ViewBag.DateOfToday
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label ReferenceNO">Ref.NO#</label>
                         <div class="col-lg-8">
@@ -23,29 +29,18 @@
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label ReferenceNO">LetterStatus</label>
                         <div class="col-lg-8">
-                           @Html.DropDownListFor(x => x.LetterStatus, new List<SelectListItem>
-                           {
-                            new SelectListItem() {Text = "--Select Status--", Value="--Select Status--"},
-                            new SelectListItem() {Text = "InProcess", Value="InProcess"},
-                            new SelectListItem() {Text = "Closed", Value="Closed"}
-                          })
-                            
+                            @Html.DropDownListFor(a => a.StatusOfLetter, ViewBag.letterStatusList as SelectList, "--Select status--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(a => a.StatusOfLetter)
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label BranchId">Assign</label>
-                        <div class="col-lg-8">
-                            @Html.DropDownList("Designation", ViewBag.Designations as SelectList, "--Select a Person--")
-                            @Html.ValidationMessageFor(a => a.Assign)
+                        <div class="col-lg-8">                         
+                            @Html.DropDownListFor(a => a.Assign, ViewBag.designationList as SelectList, "--Select a Person--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(a => a.Assign)                          
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterDate">Comment Date</label>
-                        <div class="col-lg-8">
-                            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                    
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterType">FeedBack</label>
                         <div class="col-lg-8">

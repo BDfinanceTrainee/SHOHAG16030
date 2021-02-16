@@ -79,14 +79,7 @@ namespace LMS.Controllers
         {           
             using (LetterManagementDBEntities dc = new LetterManagementDBEntities())
             {   
-                //var IncomingLetters = dc.Letters.AsQueryable().Include(a => a.Feedbacks).OrderBy(a => a.LetterFrom).AsNoTracking().ToList();
                 var IncomingLetters = dc.Letters.ToList();
-
-                //foreach (var item in IncomingLetters)
-                //{
-                //    if (item.Feedbacks == null || item.Feedbacks.Count == 0) item.Feedbacks = new List<Feedback>();
-                //    //else item.Feedbacks = item.Feedbacks.ToList();
-                //}
                 return Json(new { data = IncomingLetters }, JsonRequestBehavior.AllowGet);
 
             }
@@ -99,11 +92,17 @@ namespace LMS.Controllers
             using (LetterManagementDBEntities db = new LetterManagementDBEntities())
             {               
                 letter = db.Letters.Where(x => x.Id == id).FirstOrDefault();
-                ViewBag.designationCollection = db.Designations.ToList();
-                ViewBag.Designations = new SelectList(db.Designations.ToList(), "DesignationId", "Name");
+                ViewBag.ReferenceNo = letter.ReferenceNo;
+                ViewBag.Responsible = letter.Responsible;
+                ViewBag.DateOfToday = DateTime.Today;
+                List<Designation> desingnation = new List<Designation>();
+                desingnation = db.Designations.ToList();
+                List<LetterStatu> letterStatu = new List<LetterStatu>();
+                letterStatu = db.LetterStatus.ToList();
+                ViewBag.designationList = new SelectList(desingnation, "Name", "Name");
+                ViewBag.letterStatusList = new SelectList(letterStatu, "Status", "Status");
             }
-            ViewBag.ReferenceNo = letter.ReferenceNo;
-            ViewBag.Responsible = letter.Responsible;
+           
             return View();
 
         }
@@ -117,8 +116,8 @@ namespace LMS.Controllers
                 {
                     Letter pastLtter = db.Letters.Where(x => x.Id == model.Id).FirstOrDefault();
                     Feedback feedback = new Feedback();
-                    feedback.LetterStatus = model.LetterStatus;
-                    feedback.Assign = feedback.Assign;
+                    feedback.StatusOfLetter = model.StatusOfLetter;
+                    feedback.Assign = model.Assign;
                     feedback.Comment = model.Comment;
                     feedback.Responsible =pastLtter.Responsible;
                     feedback.Date = DateTime.Now;
@@ -127,7 +126,7 @@ namespace LMS.Controllers
                     db.Feedbacks.Add(feedback);
 
                     pastLtter.Responsible = model.Assign;
-                    db.SaveChanges();
+                    db.SaveChanges();                   
                 }
            }
             ModelState.Clear();
