@@ -16,8 +16,9 @@
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label SenderId">Letter From</label>
                         <div class="col-lg-8">
-                            @Html.TextBoxFor(a => a.LetterFrom, new { @class = "form-control", @placeholder = "Letter From" })
-                            @Html.ValidationMessageFor(a => a.LetterFrom)
+                            @Html.DropDownListFor(a => a.Sender, ViewBag.letterfromList as SelectList, "--Select Sender--", new { @class = "form-control" })
+                            @*@Html.ActionLink("Add", "AddNewSender", "LetterSending", new { @class = "btn btn-primary addnewSender" })*@
+                            @Html.ValidationMessageFor(a => a.Sender)
                         </div>
                     </div>
                     
@@ -55,33 +56,22 @@
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label RecipientId">Assign</label>
                         <div class="col-lg-8">
-                           @Html.DropDownList("Designation", ViewBag.Designations as SelectList,"--Select a Person--")
+                           @Html.DropDownListFor(a=>a.Responsible, ViewBag.designationList as SelectList,"--Select a Person--",new { @class="form-control"})
                            @Html.ValidationMessageFor(a => a.Responsible)
                         </div>
                     </div>
-                    @*<div class="form-group row">
-                        <label for="colFormLabelSm" class="col-sm-3 col-form-label BranchId">Branch Name</label>
-                        <div class="col-lg-8">
-                            @Html.TextBoxFor(a => a.BranchName, new { @class = "form-control", @placeholder = "Branch Name" })
-                            @Html.ValidationMessageFor(a => a.BranchName)
-                        </div>
-                    </div>*@
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterType">Letter Type</label>
                         <div class="col-lg-8">
-                            @Html.TextBoxFor(a => a.LetterType, new { @class = "form-control", @placeholder = "Letter Type" })
-                            @Html.ValidationMessageFor(a => a.LetterType)
+                            @Html.DropDownListFor(a => a.Type, ViewBag.LettertypeList as SelectList, "--Select letter type--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(a => a.Type)
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterStatusId">Letter Status</label>
                         <div class="col-lg-8">
-                            @Html.DropDownListFor(x => x.LetterStatus, new List<SelectListItem>
-                           {
-                            new SelectListItem() {Text = "--Select Status--", Value="--Select Status--"},
-                            new SelectListItem() {Text = "InProcess", Value="InProcess"},
-                            new SelectListItem() {Text = "Closed", Value="Closed"}
-                          })  
+                            @Html.DropDownListFor(a => a.StatusOfLetter, ViewBag.letterStatusList as SelectList, "--Select status--", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(a => a.StatusOfLetter)
                         </div>
                     </div>
                     <div class="form-group">

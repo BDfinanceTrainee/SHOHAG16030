@@ -52,7 +52,7 @@
                     "datatype" : "json"
                 },
                 "columns": [
-                    { "data": "LetterFrom", "autoWidth": true },
+                    { "data": "Sender", "autoWidth": true },
                     { "data": "Subject", "autoWidth": true },
                     //{ "data": "ReceiveDate", "autoWidth": true },
                      {  
@@ -63,7 +63,7 @@
                              return ("0" + date.getDate()).slice(-2) + '-' + month + '-' + date.getFullYear();
                          }
                      },
-                    { "data": "LetterStatus", "autoWidth": true },
+                    { "data": "StatusOfLetter", "autoWidth": true },
                     { "data": "Responsible", "autoWidth": true },
                     {
                         "data": "Id", "width": "50px", "render": function (data) {

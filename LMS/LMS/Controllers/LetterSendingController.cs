@@ -25,10 +25,21 @@ namespace LMS.Controllers
             LetterViewModel letterviewmodel = new LetterViewModel();
             using (LetterManagementDBEntities db = new LetterManagementDBEntities())
             {
-                ViewBag.designationCollection = db.Designations.ToList();
-                ViewBag.Designations = new SelectList(db.Designations.ToList(), "DesignationId", "Name");
-                return View();
+                List<LetterFrom> letterfrom = new List<LetterFrom>();
+                letterfrom = db.LetterFroms.ToList();
+                List<LetterType> lettertype = new List<LetterType>();
+                lettertype = db.LetterTypes.ToList();
+                List<Designation> desingnation = new List<Designation>();
+                desingnation = db.Designations.ToList();
+                List<LetterStatu> letterStatu = new List<LetterStatu>();
+                letterStatu = db.LetterStatus.ToList();
+
+                ViewBag.letterfromList = new SelectList(letterfrom, "LetterSender", "LetterSender");
+                ViewBag.LettertypeList = new SelectList(lettertype, "TypeOfLetter", "TypeOfLetter");
+                ViewBag.designationList = new SelectList(desingnation, "Name", "Name");
+                ViewBag.letterStatusList = new SelectList(letterStatu, "Status", "Status");
             }
+            return View();
         }
         [HttpPost]
         public  ActionResult IncomingLetter(LetterViewModel model)
@@ -37,15 +48,14 @@ namespace LMS.Controllers
             {
 
                 Letter letter = new Letter();
-                letter.LetterFrom = model.LetterFrom;
+                letter.Sender = model.Sender;
                 letter.Responsible = model.Responsible;
                 letter.Subject = model.Subject;
                 letter.ReferenceNo = model.ReferenceNo;
                 letter.LetterDate = model.LetterDate;
                 letter.ReceiveDate = model.ReceiveDate;
-                letter.BranchName = model.BranchName;
-                letter.LetterType = model.LetterType;
-                letter.LetterStatus = model.LetterStatus;
+                letter.Type = model.Type;
+                letter.StatusOfLetter = model.StatusOfLetter;
 
                 string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
                 string extension = Path.GetExtension(model.ImageFile.FileName);
@@ -108,11 +118,12 @@ namespace LMS.Controllers
                     Letter pastLtter = db.Letters.Where(x => x.Id == model.Id).FirstOrDefault();
                     Feedback feedback = new Feedback();
                     feedback.LetterStatus = model.LetterStatus;
-                    feedback.Assign = pastLtter.Responsible;
+                    feedback.Assign = feedback.Assign;
                     feedback.Comment = model.Comment;
                     feedback.Responsible =pastLtter.Responsible;
                     feedback.Date = DateTime.Now;
-                    feedback.LetterId = model.Id;                                       
+                    feedback.LetterId = model.Id;
+                    feedback.Responsible = pastLtter.Responsible;                                      
                     db.Feedbacks.Add(feedback);
 
                     pastLtter.Responsible = model.Assign;

@@ -38,23 +38,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Letters">
-      <EntityTypeMapping TypeName="LetterManagementDBModel.Letter">
-        <MappingFragment StoreEntitySet="Letter">
-          <ScalarProperty Name="ScannedImage" ColumnName="ScannedImage" />
-          <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
-          <ScalarProperty Name="LetterType" ColumnName="LetterType" />
-          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
-          <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
-          <ScalarProperty Name="LetterDate" ColumnName="LetterDate" />
-          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
-          <ScalarProperty Name="Subject" ColumnName="Subject" />
-          <ScalarProperty Name="Responsible" ColumnName="Responsible" />
-          <ScalarProperty Name="LetterFrom" ColumnName="LetterFrom" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Feedbacks">
       <EntityTypeMapping TypeName="LetterManagementDBModel.Feedback">
         <MappingFragment StoreEntitySet="Feedback">
@@ -64,6 +47,50 @@
           <ScalarProperty Name="LetterStatus" ColumnName="LetterStatus" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="LetterId" ColumnName="LetterId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LetterStatus">
+      <EntityTypeMapping TypeName="LetterManagementDBModel.LetterStatu">
+        <MappingFragment StoreEntitySet="LetterStatus">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LetterStatusId" ColumnName="LetterStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LetterTypes">
+      <EntityTypeMapping TypeName="LetterManagementDBModel.LetterType">
+        <MappingFragment StoreEntitySet="LetterType">
+          <ScalarProperty Name="TypeOfLetter" ColumnName="TypeOfLetter" />
+          <ScalarProperty Name="LetterTypeId" ColumnName="LetterTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LetterFroms">
+      <EntityTypeMapping TypeName="LetterManagementDBModel.LetterFrom">
+        <MappingFragment StoreEntitySet="LetterFrom">
+          <ScalarProperty Name="LetterSender" ColumnName="LetterSender" />
+          <ScalarProperty Name="LetterFromId" ColumnName="LetterFromId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Letters">
+      <EntityTypeMapping TypeName="LetterManagementDBModel.Letter">
+        <MappingFragment StoreEntitySet="Letter">
+          <ScalarProperty Name="LetterFromId" ColumnName="LetterFromId" />
+          <ScalarProperty Name="LetterTypeId" ColumnName="LetterTypeId" />
+          <ScalarProperty Name="LetterStatusId" ColumnName="LetterStatusId" />
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="ScannedImage" ColumnName="ScannedImage" />
+          <ScalarProperty Name="StatusOfLetter" ColumnName="StatusOfLetter" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+          <ScalarProperty Name="LetterDate" ColumnName="LetterDate" />
+          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Responsible" ColumnName="Responsible" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

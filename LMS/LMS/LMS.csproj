@@ -220,6 +220,9 @@
     <Compile Include="Context\Letter.cs">
       <DependentUpon>LetterModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\LetterFrom.cs">
+      <DependentUpon>LetterModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\LetterModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -234,6 +237,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LetterModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Context\LetterStatu.cs">
+      <DependentUpon>LetterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\LetterType.cs">
+      <DependentUpon>LetterModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\SenderType.cs">
       <DependentUpon>LetterModel.tt</DependentUpon>

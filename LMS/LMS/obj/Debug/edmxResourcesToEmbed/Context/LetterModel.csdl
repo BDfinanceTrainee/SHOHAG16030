@@ -6,6 +6,7 @@
     </Key>
     <Property Name="DesignationId" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Letters" Relationship="LetterManagementDBModel.FK_Letter_Designation" FromRole="Designation" ToRole="Letter" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
@@ -38,25 +39,28 @@
     <EntitySet Name="Employees" EntityType="Self.Employee" />
     <EntitySet Name="SenderTypes" EntityType="Self.SenderType" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="Letters" EntityType="LetterManagementDBModel.Letter" />
     <EntitySet Name="Feedbacks" EntityType="LetterManagementDBModel.Feedback" />
+    <EntitySet Name="LetterStatus" EntityType="LetterManagementDBModel.LetterStatu" />
+    <EntitySet Name="LetterTypes" EntityType="LetterManagementDBModel.LetterType" />
+    <EntitySet Name="LetterFroms" EntityType="LetterManagementDBModel.LetterFrom" />
+    <EntitySet Name="Letters" EntityType="LetterManagementDBModel.Letter" />
+    <AssociationSet Name="FK_Letter_Designation" Association="LetterManagementDBModel.FK_Letter_Designation">
+      <End Role="Designation" EntitySet="Designations" />
+      <End Role="Letter" EntitySet="Letters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Letter_LetterFrom" Association="LetterManagementDBModel.FK_Letter_LetterFrom">
+      <End Role="LetterFrom" EntitySet="LetterFroms" />
+      <End Role="Letter" EntitySet="Letters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Letter_LetterStatus" Association="LetterManagementDBModel.FK_Letter_LetterStatus">
+      <End Role="LetterStatu" EntitySet="LetterStatus" />
+      <End Role="Letter" EntitySet="Letters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Letter_LetterType" Association="LetterManagementDBModel.FK_Letter_LetterType">
+      <End Role="LetterType" EntitySet="LetterTypes" />
+      <End Role="Letter" EntitySet="Letters" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Letter">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LetterFrom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ReferenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="LetterDate" Type="DateTime" Precision="3" />
-    <Property Name="ReceiveDate" Type="DateTime" Precision="3" />
-    <Property Name="BranchName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="LetterType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="LetterStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="Feedback">
     <Key>
       <PropertyRef Name="Id" />
@@ -69,4 +73,99 @@
     <Property Name="Assign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="LetterStatu">
+    <Key>
+      <PropertyRef Name="LetterStatusId" />
+    </Key>
+    <Property Name="LetterStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Letters" Relationship="LetterManagementDBModel.FK_Letter_LetterStatus" FromRole="LetterStatu" ToRole="Letter" />
+  </EntityType>
+  <EntityType Name="LetterType">
+    <Key>
+      <PropertyRef Name="LetterTypeId" />
+    </Key>
+    <Property Name="LetterTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeOfLetter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Letters" Relationship="LetterManagementDBModel.FK_Letter_LetterType" FromRole="LetterType" ToRole="Letter" />
+  </EntityType>
+  <EntityType Name="LetterFrom">
+    <Key>
+      <PropertyRef Name="LetterFromId" />
+    </Key>
+    <Property Name="LetterFromId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LetterSender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Letters" Relationship="LetterManagementDBModel.FK_Letter_LetterFrom" FromRole="LetterFrom" ToRole="Letter" />
+  </EntityType>
+  <EntityType Name="Letter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Responsible" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReferenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LetterDate" Type="DateTime" Precision="3" />
+    <Property Name="ReceiveDate" Type="DateTime" Precision="3" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StatusOfLetter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ScannedImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationId" Type="Int32" />
+    <Property Name="LetterStatusId" Type="Int32" />
+    <Property Name="LetterTypeId" Type="Int32" />
+    <Property Name="LetterFromId" Type="Int32" />
+    <NavigationProperty Name="Designation" Relationship="LetterManagementDBModel.FK_Letter_Designation" FromRole="Letter" ToRole="Designation" />
+    <NavigationProperty Name="LetterFrom" Relationship="LetterManagementDBModel.FK_Letter_LetterFrom" FromRole="Letter" ToRole="LetterFrom" />
+    <NavigationProperty Name="LetterStatu" Relationship="LetterManagementDBModel.FK_Letter_LetterStatus" FromRole="Letter" ToRole="LetterStatu" />
+    <NavigationProperty Name="LetterType" Relationship="LetterManagementDBModel.FK_Letter_LetterType" FromRole="Letter" ToRole="LetterType" />
+  </EntityType>
+  <Association Name="FK_Letter_Designation">
+    <End Type="LetterManagementDBModel.Designation" Role="Designation" Multiplicity="0..1" />
+    <End Type="LetterManagementDBModel.Letter" Role="Letter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designation">
+        <PropertyRef Name="DesignationId" />
+      </Principal>
+      <Dependent Role="Letter">
+        <PropertyRef Name="DesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Letter_LetterFrom">
+    <End Type="LetterManagementDBModel.LetterFrom" Role="LetterFrom" Multiplicity="0..1" />
+    <End Type="LetterManagementDBModel.Letter" Role="Letter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LetterFrom">
+        <PropertyRef Name="LetterFromId" />
+      </Principal>
+      <Dependent Role="Letter">
+        <PropertyRef Name="LetterFromId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Letter_LetterStatus">
+    <End Type="LetterManagementDBModel.LetterStatu" Role="LetterStatu" Multiplicity="0..1" />
+    <End Type="LetterManagementDBModel.Letter" Role="Letter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LetterStatu">
+        <PropertyRef Name="LetterStatusId" />
+      </Principal>
+      <Dependent Role="Letter">
+        <PropertyRef Name="LetterStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Letter_LetterType">
+    <End Type="LetterManagementDBModel.LetterType" Role="LetterType" Multiplicity="0..1" />
+    <End Type="LetterManagementDBModel.Letter" Role="Letter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LetterType">
+        <PropertyRef Name="LetterTypeId" />
+      </Principal>
+      <Dependent Role="Letter">
+        <PropertyRef Name="LetterTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

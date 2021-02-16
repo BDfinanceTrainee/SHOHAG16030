@@ -29,7 +29,10 @@ namespace LMS.Context
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<SenderType> SenderTypes { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Letter> Letters { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
+        public virtual DbSet<LetterStatu> LetterStatus { get; set; }
+        public virtual DbSet<LetterType> LetterTypes { get; set; }
+        public virtual DbSet<LetterFrom> LetterFroms { get; set; }
+        public virtual DbSet<Letter> Letters { get; set; }
     }
 }

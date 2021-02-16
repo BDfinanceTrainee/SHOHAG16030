@@ -10,7 +10,7 @@ namespace LMS.Models
     public class LetterViewModel
     {
         public int Id { get; set; }
-        public string LetterFrom { get; set; }
+        public string Sender { get; set; }
         public string Responsible { get; set; }
         public string Subject { get; set; }
         public string ReferenceNo { get; set; }
@@ -23,9 +23,12 @@ namespace LMS.Models
         [Display(Name = "Evening Showtime")]
         public System.DateTime ReceiveDate { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
-        public string BranchName { get; set; }
-        public string LetterType { get; set; }
-        public string LetterStatus { get; set; }
+        public string Type { get; set; }
+        public string StatusOfLetter { get; set; }
         public string ScannedImage { get; set; }
+        //public int DesignationId { get; set; }
+        //public int  LetterStatusId { get; set; }
+        //public int LetterTypeId { get; set; }
+        //public int LetterFromId { get; set; }
     }
 }

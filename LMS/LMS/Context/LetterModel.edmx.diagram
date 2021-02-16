@@ -5,12 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="65117790cd2f410fa5faf7064ba7befe" Name="Diagram1">
-        <EntityTypeShape EntityType="LetterManagementDBModel.Designation" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.Designation" Width="1.5" PointX="4.375" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.Employee" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.SenderType" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LetterManagementDBModel.sysdiagram" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.Letter" Width="1.5" PointX="0.75" PointY="10.625" />
-        <EntityTypeShape EntityType="LetterManagementDBModel.Feedback" Width="1.5" PointX="3" PointY="10.125" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.Feedback" Width="1.5" PointX="6.625" PointY="10.25" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.LetterStatu" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.LetterType" Width="1.5" PointX="3.375" PointY="0.875" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.LetterFrom" Width="1.5" PointX="5.375" PointY="0.875" />
+        <EntityTypeShape EntityType="LetterManagementDBModel.Letter" Width="1.5" PointX="9.625" PointY="1" />
+        <AssociationConnector Association="LetterManagementDBModel.FK_Letter_Designation" />
+        <AssociationConnector Association="LetterManagementDBModel.FK_Letter_LetterFrom" />
+        <AssociationConnector Association="LetterManagementDBModel.FK_Letter_LetterStatus" />
+        <AssociationConnector Association="LetterManagementDBModel.FK_Letter_LetterType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

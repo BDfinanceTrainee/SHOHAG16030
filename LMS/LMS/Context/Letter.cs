@@ -15,15 +15,23 @@ namespace LMS.Context
     public partial class Letter
     {
         public int Id { get; set; }
-        public string LetterFrom { get; set; }
+        public string Sender { get; set; }
         public string Responsible { get; set; }
         public string Subject { get; set; }
         public string ReferenceNo { get; set; }
         public Nullable<System.DateTime> LetterDate { get; set; }
         public Nullable<System.DateTime> ReceiveDate { get; set; }
-        public string BranchName { get; set; }
-        public string LetterType { get; set; }
-        public string LetterStatus { get; set; }
+        public string Type { get; set; }
+        public string StatusOfLetter { get; set; }
         public string ScannedImage { get; set; }
+        public Nullable<int> DesignationId { get; set; }
+        public Nullable<int> LetterStatusId { get; set; }
+        public Nullable<int> LetterTypeId { get; set; }
+        public Nullable<int> LetterFromId { get; set; }
+    
+        public virtual Designation Designation { get; set; }
+        public virtual LetterFrom LetterFrom { get; set; }
+        public virtual LetterStatu LetterStatu { get; set; }
+        public virtual LetterType LetterType { get; set; }
     }
 }

@@ -4,9 +4,13 @@
     width: 92%;
 }
 
-select {
+/*select {
     word-wrap: normal;
     width: 340px;
     padding-left:10px;
     margin-left: 8px;
+}*/
+.addnewSender {
+    margin-left: 300px;
+    margin-top: -65px;
 }
