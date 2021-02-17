@@ -5,6 +5,8 @@
 }
 
 <link href="~/Content/form.css" rel="stylesheet" />
+
+
 @using (Html.BeginForm("IncomingLetter", "LetterSending", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="">
@@ -13,11 +15,41 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="col-md-6 border-right p-2">
-                    <div class="form-group row">
-                        <label for="colFormLabelSm" class="col-sm-3 col-form-label SenderId">Letter From</label>
-                        <div class="col-lg-8">
+                    <div class="form-group row LetterFrom">
+                        <label for="colFormLabelSm" class="col-sm-3 col-form-label ">Letter From</label>
+                        <div class="col-lg-7">
+                            @*<a href="/LetterSending/AddNewSender" class="btn btn-dark " data-toggle="modal" data-target="#myModal">add</a>*@
                             @Html.DropDownListFor(a => a.Sender, ViewBag.letterfromList as SelectList, "--Select Sender--", new { @class = "form-control" })
-                            @*@Html.ActionLink("Add", "AddNewSender", "LetterSending", new { @class = "btn btn-primary addnewSender" })*@
+                            <div class="modal fade" id="myModal">
+                                <div class="modal-dialog">
+                                     <div class="modal-content">
+                                         
+                                         <div class="modal-header">
+                                             <h5 class="modal-title">Add New Sender Name</h5>
+                                             <a href="#" class="close" data-dissmiss="modal">&times;</a>
+                                         </div>
+                                         <div class="modal-body">
+                                            <form id="myForm">
+                                                <div class="form-group row">
+                                                    <label for="colFormLabelSm" class="col-sm-3 col-form-label Subject">Sender Name</label>
+                                                    <div class="col-lg-8">
+                                                        @Html.TextBoxFor(a => a.Sender, new { @class = "form-control", @placeholder = "Sender" })
+                                                        @Html.ValidationMessageFor(a => a.Sender)
+                                                    </div>
+                                                </div>
+                                            </form>
+                                             <div>
+
+                                             </div>
+                                         </div>
+                                         <div class="modal-footer">
+                                             <a href="#" class="btn btn-danger" data-dissmiss="modal">Cancel</a>
+                                             <input type="reset" value="Submit" class="btn btn-success" id="btnSubmit"/>
+                                         </div>
+     
+                                     </div>
+                                </div>
+                            </div>                         
                             @Html.ValidationMessageFor(a => a.Sender)
                         </div>
                     </div>
@@ -62,7 +94,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterType">Letter Type</label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             @Html.DropDownListFor(a => a.Type, ViewBag.LettertypeList as SelectList, "--Select letter type--", new { @class = "form-control" })
                             @Html.ValidationMessageFor(a => a.Type)
                         </div>
@@ -83,5 +115,21 @@
                 </div>
             </div>
         </fieldset>
+
     </div>
+    <script>
+    $(document).ready(function () {
+        $("#btnSubmit").click(function () {
+            var myformdata = ("#myForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/LetterSending/AddNewSender",
+                    data: myformdata,
+                    success: function () {
+                        $("#myModal").modal("hide");
+                    }
+                })
+        })
+    })
+    </script>
 }

@@ -16,3 +16,21 @@ textarea {
     max-width: 280px;
 }
 
+.login100-more {
+    background-image: url('../template/Login/Login_v18/images/login.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+page-content {
+    background: url('../template/Register/colorlib-regform-35/images/register.jpg') no-repeat center center fixed;
+    background-image: url('../template/Register/colorlib-regform-35/images/register.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.top{
+    margin-top:-75px;
+}

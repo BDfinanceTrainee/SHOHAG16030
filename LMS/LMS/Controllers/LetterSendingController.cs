@@ -156,7 +156,18 @@ namespace LMS.Controllers
             }
 
             return View(LetterImage);
-        }   
+        }
 
+        public ActionResult AddNewSender(LetterViewModel model)
+        {
+            LetterFrom sender = new LetterFrom();
+            using (LetterManagementDBEntities db = new LetterManagementDBEntities())
+            {
+                sender.LetterSender = model.Sender;
+                db.LetterFroms.Add(sender);
+                db.SaveChanges();               
+            }
+            return View();
+        }   
     }
 }

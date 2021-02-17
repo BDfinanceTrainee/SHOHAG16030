@@ -1,3 +1,4 @@
+J:\SHOHAG16030\LMS\LMS\obj\Debug\LMS.csprojResolveAssemblyReference.cache
 J:\SHOHAG16030\LMS\LMS\bin\roslyn\csc.exe
 J:\SHOHAG16030\LMS\LMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 J:\SHOHAG16030\LMS\LMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -74,4 +75,3 @@ J:\SHOHAG16030\LMS\LMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 J:\SHOHAG16030\LMS\LMS\bin\System.Web.Http.Owin.xml
 J:\SHOHAG16030\LMS\LMS\obj\Debug\LMS.dll
 J:\SHOHAG16030\LMS\LMS\obj\Debug\LMS.pdb
-J:\SHOHAG16030\LMS\LMS\obj\Debug\LMS.csprojResolveAssemblyReference.cache
