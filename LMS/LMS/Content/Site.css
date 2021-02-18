@@ -34,3 +34,8 @@ page-content {
 .top{
     margin-top:-75px;
 }
+.popup btn btn-info{
+    width: 53px;
+    height: 28px;
+    margin-right:-100px;
+}

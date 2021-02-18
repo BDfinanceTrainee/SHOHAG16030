@@ -18,7 +18,7 @@
                     <div class="form-group row LetterFrom">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label ">Letter From</label>
                         <div class="col-lg-7">
-                            @*<a href="/LetterSending/AddNewSender" class="btn btn-dark " data-toggle="modal" data-target="#myModal">add</a>*@
+                            <a href="/LetterSending/AddNewSender" class="btn btn-dark " data-toggle="modal" data-target="#myModal">add</a>
                             @Html.DropDownListFor(a => a.Sender, ViewBag.letterfromList as SelectList, "--Select Sender--", new { @class = "form-control" })
                             <div class="modal fade" id="myModal">
                                 <div class="modal-dialog">
@@ -34,7 +34,7 @@
                                                     <label for="colFormLabelSm" class="col-sm-3 col-form-label Subject">Sender Name</label>
                                                     <div class="col-lg-8">
                                                         @Html.TextBoxFor(a => a.Sender, new { @class = "form-control", @placeholder = "Sender" })
-                                                        @Html.ValidationMessageFor(a => a.Sender)
+                                                        @Html.ValidationMessageFor(a => a.Sender, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
                                             </form>
@@ -44,13 +44,13 @@
                                          </div>
                                          <div class="modal-footer">
                                              <a href="#" class="btn btn-danger" data-dissmiss="modal">Cancel</a>
-                                             <input type="reset" value="Submit" class="btn btn-success" id="btnSubmit"/>
+                                             <input type="button" onclick="location.href='@Url.Action("AddNewSender","LetterSending")'" />
                                          </div>
      
                                      </div>
                                 </div>
                             </div>                         
-                            @Html.ValidationMessageFor(a => a.Sender)
+                            @Html.ValidationMessageFor(a => a.Sender,"",new {@class="text-danger" })
                         </div>
                     </div>
                     
@@ -58,14 +58,14 @@
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label Subject">Subject</label>
                         <div class="col-lg-8">
                             @Html.TextBoxFor(a => a.Subject, new { @class = "form-control", @placeholder = "Subject" })
-                            @Html.ValidationMessageFor(a => a.Subject)
+                            @Html.ValidationMessageFor(a => a.Subject, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label ReferenceNO">Reference NO.#</label>
                         <div class="col-lg-8">
                             @Html.TextBoxFor(a => a.ReferenceNo, new { @class = "form-control", @placeholder = "Reference number" })
-                            @Html.ValidationMessageFor(a => a.ReferenceNo)
+                            @Html.ValidationMessageFor(a => a.ReferenceNo, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group row">
@@ -89,26 +89,26 @@
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label RecipientId">Assign</label>
                         <div class="col-lg-8">
                            @Html.DropDownListFor(a=>a.Responsible, ViewBag.designationList as SelectList,"--Select a Person--",new { @class="form-control"})
-                           @Html.ValidationMessageFor(a => a.Responsible)
+                           @Html.ValidationMessageFor(a => a.Responsible, "", new { @class = "text-danger" }  )
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterType">Letter Type</label>
                         <div class="col-lg-7">
                             @Html.DropDownListFor(a => a.Type, ViewBag.LettertypeList as SelectList, "--Select letter type--", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(a => a.Type)
+                            @Html.ValidationMessageFor(a => a.Type, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterStatusId">Letter Status</label>
                         <div class="col-lg-8">
                             @Html.DropDownListFor(a => a.StatusOfLetter, ViewBag.letterStatusList as SelectList, "--Select status--", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(a => a.StatusOfLetter)
+                            @Html.ValidationMessageFor(a => a.StatusOfLetter, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterStatusId"> Upload Image</label>
-                        <input type="file" name="ImageFile" required>
+                        <input type="file" name="ImageFile">
                     </div>
                     <button type="submit" class="btn btn-primary btn-md btn-block">Submit</button>
 

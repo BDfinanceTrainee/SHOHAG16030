@@ -44,7 +44,7 @@ namespace LMS.Controllers
         [HttpPost]
         public  ActionResult IncomingLetter(LetterViewModel model)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
 
                 Letter letter = new Letter();
@@ -70,9 +70,10 @@ namespace LMS.Controllers
                     db.Letters.Add(letter);
                     db.SaveChanges();
                 }
+                return View("Index");
             }
-            ModelState.Clear();
-             return View("Index");           
+           // ModelState.Clear();
+             return View(model);           
         }
         [HttpGet]
         public ActionResult ViewAllIncomingLetter()
@@ -109,7 +110,7 @@ namespace LMS.Controllers
         [HttpPost]
         public ActionResult Commentpopup(Feedback model)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                
                 using (LetterManagementDBEntities db = new LetterManagementDBEntities())
@@ -128,9 +129,10 @@ namespace LMS.Controllers
                     pastLtter.Responsible = model.Assign;
                     db.SaveChanges();                   
                 }
-           }
-            ModelState.Clear();
-            return View("Index");
+                return View("Index");
+            }
+           // ModelState.Clear();
+            return View(model);
         }
         [HttpGet]
         public ActionResult AllFeedBack(int id)

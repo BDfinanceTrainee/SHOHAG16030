@@ -30,14 +30,14 @@
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label ReferenceNO">LetterStatus</label>
                         <div class="col-lg-8">
                             @Html.DropDownListFor(a => a.StatusOfLetter, ViewBag.letterStatusList as SelectList, "--Select status--", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(a => a.StatusOfLetter)
+                            @Html.ValidationMessageFor(a => a.StatusOfLetter, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label BranchId">Assign</label>
                         <div class="col-lg-8">                         
                             @Html.DropDownListFor(a => a.Assign, ViewBag.designationList as SelectList, "--Select a Person--", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(a => a.Assign)                          
+                            @Html.ValidationMessageFor(a => a.Assign, "", new { @class = "text-danger" })                          
                         </div>
                     </div>
                     
@@ -45,11 +45,12 @@
                         <label for="colFormLabelSm" class="col-sm-3 col-form-label LetterType">FeedBack</label>
                         <div class="col-lg-8">
                             @Html.TextAreaFor(a => a.Comment, new { @class = "form-control", @placeholder = "Write a comment" })
-                            @Html.ValidationMessageFor(a => a.Comment)
+                            @Html.ValidationMessageFor(a => a.Comment, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-md btn-block">Submit</button>
-
+                    <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>                     
+                    </div>
                 </div>
             </div>
         </fieldset>  

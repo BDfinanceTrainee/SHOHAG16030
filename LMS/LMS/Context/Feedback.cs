@@ -11,19 +11,29 @@ namespace LMS.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Feedback
     {
+        [Required]
         public int Id { get; set; }
+       [Required(ErrorMessage = "Invalid Input")]
         public int LetterId { get; set; }
+       [Required(ErrorMessage = "Invalid Input")]
         public Nullable<System.DateTime> Date { get; set; }
+       [Required(ErrorMessage = "Invalid Input")]
         public string StatusOfLetter { get; set; }
+       [Required(ErrorMessage = "Invalid Input")]
         public string Responsible { get; set; }
+       [Required(ErrorMessage = "Invalid Input")]
         public string Assign { get; set; }
+       [Required(ErrorMessage = "Invalid Input")]
         public string Comment { get; set; }
+       [Required(ErrorMessage = "Invalid Input")]
         public Nullable<int> DesignationId { get; set; }
+       [Required(ErrorMessage = "Invalid Input")]
         public Nullable<int> LetterStatusId { get; set; }
-    
+       [Required(ErrorMessage = "Invalid Input")]
         public virtual Designation Designation { get; set; }
         public virtual LetterStatu LetterStatu { get; set; }
     }
