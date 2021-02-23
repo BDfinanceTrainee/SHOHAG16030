@@ -169,7 +169,7 @@ namespace LMS.Controllers
                 db.LetterFroms.Add(sender);
                 db.SaveChanges();               
             }
-            return View();
+            return View("IncomingLetter");
         }   
     }
 }
